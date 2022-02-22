@@ -14,8 +14,9 @@ public class test01 {
 		System.out.println("|q p|   /}");
 		System.out.println("( 0 )\"\"\"\\");
 		System.out.println("|\"^\"`    |");
-		System.out.println("||_/=\\\\__|");    
+		System.out.println("||_/=\\\\__|");   
 		
+		System.out.println("1. 소원 커밋");
 		// 커밋 -> 로컬 레퍼지토리에 저장하는 작업!
 
 	}
