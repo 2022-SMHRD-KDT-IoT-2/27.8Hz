@@ -20,6 +20,9 @@ public class test01 {
 		System.out.println("2. 헌찬 커밋");
 		System.out.println("3. 영석 커밋");
 		System.out.println("4. 현빈 커밋");
+		System.out.println("5. 동일 커밋");
+		
+		
 		// 커밋 -> 로컬 레퍼지토리에 저장하는 작업!
 
 	}
