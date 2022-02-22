@@ -23,7 +23,8 @@ public class test01_소원 {
 		System.out.println("5. 동일 커밋");
 		System.out.println("6. 옥현빈 커밋");
 		
-		System.out.println("소원 커밋");
+		System.out.println("1. 소원 커밋 !!");
+		
 		
 		
 		// 커밋 -> 로컬 레퍼지토리에 저장하는 작업!
