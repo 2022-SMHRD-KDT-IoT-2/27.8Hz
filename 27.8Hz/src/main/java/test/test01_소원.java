@@ -1,6 +1,6 @@
 package test;
 
-public class test01 {
+public class test01_¼Ò¿ø {
 
 	public static void main(String[] args) {
 		
