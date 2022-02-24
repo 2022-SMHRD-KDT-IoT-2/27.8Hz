@@ -27,7 +27,7 @@
 <br>
 
 예시)
-NICK
+NICK <br>
 style: h2 요소 전역 스타일 변경
 
 1. global.scss 에서 h2 요소에 적용된 그림자를 제거했습니다.
