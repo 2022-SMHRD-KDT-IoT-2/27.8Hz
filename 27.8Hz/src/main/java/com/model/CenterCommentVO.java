@@ -2,47 +2,49 @@ package com.model;
 
 public class CenterCommentVO {
 	
-	private	int a_seq;	//
-	private	int q_seq; // 
-	private	int a_content; // 
-	private String a_file ; // 
-	private String a_date; // 
-	private  String user_ID; // 
+	private	int aSeq;	//
+	private	int qSeq; // 
+	private	int aContent; // 
+	private String aFile ; // 
+	private String aDate; // 
+	private  String userID; // 
 	
-	public CenterCommentVO(int a_seq, int q_seq, int a_content, String a_file, String a_date, String user_id) {
+	public CenterCommentVO(int aSeq, int qSeq, int aContent, String aFile, String aDate, String userID) {
 		super();
-		this.a_seq = a_seq;
-		this.q_seq = q_seq;
-		this.a_content = a_content;
-		this.a_file = a_file;
-		this.a_date = a_date;
-		this.user_ID = user_id;
+		this.aSeq = aSeq;
+		this.qSeq = qSeq;
+		this.aContent = aContent;
+		this.aFile = aFile;
+		this.aDate = aDate;
+		this.userID = userID;
 	}
 
-	public int getA_seq() {
-		return a_seq;
+	public int getaSeq() {
+		return aSeq;
 	}
 
-	public int getQ_seq() {
-		return q_seq;
+	public int getqSeq() {
+		return qSeq;
 	}
 
-	public int getA_content() {
-		return a_content;
+	public int getaContent() {
+		return aContent;
 	}
 
-	public String getA_file() {
-		return a_file;
+	public String getaFile() {
+		return aFile;
 	}
 
-	public String getA_date() {
-		return a_date;
+	public String getaDate() {
+		return aDate;
 	}
 
-	public String getUser_id() {
-		return user_ID;
+	public String getUserID() {
+		return userID;
 	}
 	
+	
+
 	
 	
 	

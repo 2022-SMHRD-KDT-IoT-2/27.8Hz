@@ -2,49 +2,48 @@ package com.model;
 
 public class CenterVO {
 	
-	private	int q_seq;	//
-	private	String q_title; // 
-	private	String q_content; // 
-	private String q_file ; // 
-	private String q_date; // 
-	private  String user_ID; // 
+	private	int qSeq;	//
+	private	String qTitle; // 
+	private	String qContent; // 
+	private String qFile ; // 
+	private String qDate; // 
+	private  String userID; // 
 	
-	public CenterVO(int q_seq, String q_title, String q_content, String q_file, String q_date, String user_id) {
+	public CenterVO(int qSeq, String qTitle, String qContent, String qFile, String qDate, String userID) {
 		super();
-		this.q_seq = q_seq;
-		this.q_title = q_title;
-		this.q_content = q_content;
-		this.q_file = q_file;
-		this.q_date = q_date;
-		this.user_ID = user_id;
+		this.qSeq = qSeq;
+		this.qTitle = qTitle;
+		this.qContent = qContent;
+		this.qFile = qFile;
+		this.qDate = qDate;
+		this.userID = userID;
 	}
 
-	public int getQ_seq() {
-		return q_seq;
+	public int getqSeq() {
+		return qSeq;
 	}
 
-	public String getQ_title() {
-		return q_title;
+	public String getqTitle() {
+		return qTitle;
 	}
 
-	public String getQ_content() {
-		return q_content;
+	public String getqContent() {
+		return qContent;
 	}
 
-	public String getQ_file() {
-		return q_file;
+	public String getqFile() {
+		return qFile;
 	}
 
-	public String getQ_date() {
-		return q_date;
+	public String getqDate() {
+		return qDate;
 	}
 
-	public String getUser_id() {
-		return user_ID;
+	public String getUserID() {
+		return userID;
 	}
 	
 	
 	
 	
-
 }
