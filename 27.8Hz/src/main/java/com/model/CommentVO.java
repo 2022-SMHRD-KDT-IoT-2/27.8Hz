@@ -2,55 +2,42 @@ package com.model;
 
 public class CommentVO {
 	
-	private	int commentSeq;	//
-	private	String articleSeq; // 
-	private	String commentCon; // 
-	private String commentDate; // 
-	private String userID; // 
-	private  String commentLikes; // 
+	private	int comment_seq;	//
+	private	String article_seq; // 
+	private	String comment_con; // 
+	private String comment_date; // 
+	private String user_id; // 
+	private  String comment_likes; // 
 	
-	
-	public CommentVO(int commentSeq, String articleSeq, String commentCon, String commentDate, String userID,
-			String commentLikes) {
+	public CommentVO(int comment_seq, String article_seq, String comment_con, String comment_date, String user_id,
+			String comment_likes) {
 		super();
-		this.commentSeq = commentSeq;
-		this.articleSeq = articleSeq;
-		this.commentCon = commentCon;
-		this.commentDate = commentDate;
-		this.userID = userID;
-		this.commentLikes = commentLikes;
-	}
-
-
-	public int getCommentSeq() {
-		return commentSeq;
-	}
-
-
-	public String getArticleSeq() {
-		return articleSeq;
-	}
-
-
-	public String getCommentCon() {
-		return commentCon;
-	}
-
-
-	public String getCommentDate() {
-		return commentDate;
-	}
-
-
-	public String getUserID() {
-		return userID;
-	}
-
-
-	public String getCommentLikes() {
-		return commentLikes;
+		this.comment_seq = comment_seq;
+		this.article_seq = article_seq;
+		this.comment_con = comment_con;
+		this.comment_date = comment_date;
+		this.user_id = user_id;
+		this.comment_likes = comment_likes;
 	}
 	
+	public int getComment_seq() {
+		return comment_seq;
+	}
+	public String getArticle_seq() {
+		return article_seq;
+	}
+	public String getComment_con() {
+		return comment_con;
+	}
+	public String getComment_date() {
+		return comment_date;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public String getComment_likes() {
+		return comment_likes;
+	}
 	
 	
 	
