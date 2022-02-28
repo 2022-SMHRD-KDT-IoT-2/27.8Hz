@@ -34,6 +34,9 @@
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<!-- 네이버 로그인 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
 <body>
@@ -74,9 +77,8 @@
 						src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
 						width="222" alt="카카오 로그인 버튼" /></a> </a>
 						</a></li>
-						<li onclick="kakaoLogout();"><a href="javascript:void(0)">
-								<span>카카오 로그아웃</span>
-						</a></li>
+						<li id="naver_id_login">네이버로그인</li>
+						
 					</ul>
 					<!-- 카카오 스크립트 -->
 					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -105,21 +107,6 @@
 						        console.log(error)
 						      },
 						    })
-						  }
-						//카카오로그아웃  
-						function kakaoLogout() {
-						    if (Kakao.Auth.getAccessToken()) {
-						      Kakao.API.request({
-						        url: '/v1/user/unlink',
-						        success: function (response) {
-						        	console.log(response)
-						        },
-						        fail: function (error) {
-						          console.log(error)
-						        },
-						      })
-						      Kakao.Auth.setAccessToken(undefined)
-						    }
 						  }  
 						</script>
 
@@ -127,7 +114,19 @@
 					<!-- ----------------------------------------------------------------------------------------- -->
 					<!-- ----------------------------------------------------------------------------------------- -->
 
-
+	<!-- 네이버 로그인 -->
+	<!-- 네이버 로그인 버튼 노출 영역 -->
+  	
+  	<!-- //네이버 로그인 버튼 노출 영역 -->
+  	<script type="text/javascript">
+  		var naver_id_login = new naver_id_login("w_HWHzWLLzNe0AqGU0wB", "http://localhost:8081/27.8Hz/SignUP/signUp_naver.jsp");
+  		var state = naver_id_login.getUniqState();
+  		naver_id_login.setButton("white", 2,40);
+  		naver_id_login.setDomain("http://localhost:8081/27.8Hz/Login/login.html");
+  		naver_id_login.setState(state);
+  		naver_id_login.setPopup();
+  		naver_id_login.init_naver_id_login();
+  	</script>
 
 
 
