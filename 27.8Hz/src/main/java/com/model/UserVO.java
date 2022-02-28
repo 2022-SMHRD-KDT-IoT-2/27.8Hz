@@ -1,56 +1,56 @@
 package com.model;
 
 public class UserVO {
-	private String userID;
-	private String userPW;
-	private String userNAME;
-	private String userPHONE;
-	private String userCARNUM;
-	private String userADDR;
-	private String guardianPHONE;
-	private String userJOINDATE;
-	private String adminYN;
+	private String user_id;
+	private String user_pw;
+	private String user_name;
+	private String user_phone;
+	private String user_carnum;
+	private String user_addr;
+	private String guardian_phone;
+	private String user_joindate;
+	private String admin_yn;
 	
-	public UserVO(String userID, String userPW, String userNAME, String userPHONE, String userCARNUM, String userADDR,
-			String guardianPHONE, String userJOINDATE, String adminYN) {
+	public UserVO(String user_id, String user_pw, String user_name, String user_phone, String user_carnum,
+			String user_addr, String guardian_phone, String user_joindate, String admin_yn) {
 		super();
-		this.userID = userID;
-		this.userPW = userPW;
-		this.userNAME = userNAME;
-		this.userPHONE = userPHONE;
-		this.userCARNUM = userCARNUM;
-		this.userADDR = userADDR;
-		this.guardianPHONE = guardianPHONE;
-		this.userJOINDATE = userJOINDATE;
-		this.adminYN = adminYN;
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_phone = user_phone;
+		this.user_carnum = user_carnum;
+		this.user_addr = user_addr;
+		this.guardian_phone = guardian_phone;
+		this.user_joindate = user_joindate;
+		this.admin_yn = admin_yn;
 	}
 	
-	public String getUserID() {
-		return userID;
+	public String getUser_id() {
+		return user_id;
 	}
-	public String getUserPW() {
-		return userPW;
+	public String getUser_pw() {
+		return user_pw;
 	}
-	public String getUserNAME() {
-		return userNAME;
+	public String getUser_name() {
+		return user_name;
 	}
-	public String getUserPHONE() {
-		return userPHONE;
+	public String getUser_phone() {
+		return user_phone;
 	}
-	public String getUserCARNUM() {
-		return userCARNUM;
+	public String getUser_carnum() {
+		return user_carnum;
 	}
-	public String getUserADDR() {
-		return userADDR;
+	public String getUser_addr() {
+		return user_addr;
 	}
-	public String getGuardianPHONE() {
-		return guardianPHONE;
+	public String getGuardian_phone() {
+		return guardian_phone;
 	}
-	public String getUserJOINDATE() {
-		return userJOINDATE;
+	public String getUser_joindate() {
+		return user_joindate;
 	}
-	public String getAdminYN() {
-		return adminYN;
+	public String getAdmin_yn() {
+		return admin_yn;
 	}
 	
 	
