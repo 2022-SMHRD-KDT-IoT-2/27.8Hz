@@ -2,11 +2,11 @@ package com.model;
 
 public class MonitoringVO {
 
-	public String driverID; // ID
-	public int heartrate; // 심박수
-	public int o2; // 산소포화도
-	public int temp; // 체온
-	public int regdate; // 수집 날짜
+	private String driverID; // ID
+	private int heartrate; // 심박수
+	private int o2; // 산소포화도
+	private int temp; // 체온
+	private int regdate; // 수집 날짜
 	
 	public MonitoringVO(String driverID, int heartrate, int o2, int temp, int regdate) {
 		super();
