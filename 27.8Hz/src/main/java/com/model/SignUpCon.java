@@ -41,9 +41,9 @@ public class SignUpCon extends HttpServlet {
 		
 		if(cnt>0) {
 			
-			response.sendRedirect("header.html"); // 회원가입 성공시 페이지 (2.28현재 아직 없음)
+			response.sendRedirect("header.jsp"); // 회원가입 성공시 페이지 (2.28현재 아직 없음)
 		}else {
-			response.sendRedirect("header.html"); // 회원가입 실패시 메인페이지로
+			response.sendRedirect("header.jsp"); // 회원가입 실패시 메인페이지로
 		}
 		
 	}
