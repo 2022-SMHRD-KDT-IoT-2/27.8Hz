@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="../../assets_board/css/main_board.css" />
+    <style>
+        table tbody tr {
+            background-color: rgb(245 246 246 / 48%) !important;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+        <!-- Wrapper -->
+        <div class="wrapper">
+            <div class="inner">
+                <jsp:include page="/app/fix/header.jsp" />
+            </div>
+        </div>
+
+        <!-- Wrapper -->
+        <div class="wrapper">
+            <div class="inner">
+
+                <!-- Main -->
+                <section class="main">
+
+                    <header class="major">
+                        <h1>게시판</h1>
+                        <p>자유 게시판</p>
+                    </header>
+
+                    <div class="table-wrapper">
+                        <div style="display:flex; justify-content:space-between;">
+                            <span>글 개수 : </span>
+                            <button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/board/BoardWrite.bo'">글쓰기</button>
+                        </div>
+
+                        <table>
+                            <caption style="text-align:left; margin-bottom:3%;">
+
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>날짜</th>
+                                    <th>조회수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><a href="#">핵심프로젝트 테스트 게시물입니다. 화이팅! </a></td>
+                                    <td>김헌찬</td>
+                                    <td>2022/02/26</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table style="font-size:1.3rem">
+                            <tr align="center" valign="middle">
+                                <td>
+                                    <a href="#">&lt;</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">&gt;</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Scripts -->
+<script src="../../assets_board/js/jquery.min.js"></script>
+<script src="../../assets_board/js/browser.min.js"></script>
+<script src="../../assets_board/js/breakpoints.min.js"></script>
+<script src="../../assets_board/js/util.js"></script>
+<script src="../../assets_board/js/main.js"></script>
+</html>
