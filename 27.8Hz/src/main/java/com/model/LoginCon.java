@@ -35,7 +35,7 @@ public class LoginCon extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginVO", vo);	
 			
-			response.sendRedirect("header.html"); 
+			response.sendRedirect("header.jsp"); 
 		}else { //vo=null
 		response.sendRedirect("./Login/login.html"); 
 		// 일단은 실패하면 다시 로그인으로
