@@ -25,6 +25,12 @@ public class UserVO {
 		this.admin_yn = admin_yn;
 	}
 	
+	public UserVO(String user_id, String user_pw) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}

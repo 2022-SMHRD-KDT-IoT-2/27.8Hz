@@ -65,7 +65,7 @@
 											<span>or</span>
 										</p>
 									</div>
-									<form action="#" class="signup-form">
+									<form action="../SignUpCon" class="signup-form">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
