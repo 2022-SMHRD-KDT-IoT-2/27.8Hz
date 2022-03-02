@@ -22,6 +22,23 @@ public class CommunityVO {
 		this.user_id = user_id;
 		this.article_likes = article_likes;
 	}
+	
+	
+	
+	
+
+	public CommunityVO(int article_seq, String article_title, String user_id, String article_date, int article_cnt ) {
+		super();
+		this.article_seq = article_seq;
+		this.article_title = article_title;
+		this.article_date = article_date;
+		this.article_cnt = article_cnt;
+		this.user_id = user_id;
+	}
+
+
+
+
 
 	public int getArticle_seq() {
 		return article_seq;
