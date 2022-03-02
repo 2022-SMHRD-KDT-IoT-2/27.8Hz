@@ -54,7 +54,7 @@ public class CommunityDAO {
 	}
 	
 	
-	
+	// 커뮤니티 목록 가져오기
 	public ArrayList<CommunityVO> C_getList() {
 		
 		
@@ -100,7 +100,7 @@ public class CommunityDAO {
 	
 	
 	
-	
+	// 글쓰기 버튼 클릭시 게시글 작성
 	public int boardWrite(String boardTitle, String boardContent, String userID) {
 		
 		int cnt =0;
@@ -130,6 +130,72 @@ public class CommunityDAO {
 	}
 	
 	
+	
+	
+	public CommunityVO getOne(int num) {
+	
+		CommunityVO vo = null;
+		
+		try {
+			conn();
+			
+			String sql = "select USER_ID, ARTICLE_TITLE, ARTICLE_CONTENT from T_COMMUNITY where ARTICLE_SEQ= ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, num);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				
+				String USER_ID = rs.getString(1);
+				String ARTICLE_TITLE = rs.getString(2);
+				String ARTICLE_CONTENT = rs.getString(3);
+			
+				
+				vo = new CommunityVO(USER_ID, ARTICLE_TITLE, ARTICLE_CONTENT);
+			}//end of while
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+				close();		
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return vo;
+	}
+	
+	
+	
+	
+public void updateViews(int num) {
+	      
+	      try {
+	        conn();
+	         
+	         String sql = "update T_COMMUNITY set ARTICLE_CNT=ARTICLE_CNT+1 where ARTICLE_SEQ=?";
+	         psmt = conn.prepareStatement(sql);
+	         
+	         psmt.setInt(1, num);
+	         int cnt = psmt.executeUpdate();
+	   
+	         
+	      }catch(Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	   
+	         try {
+	           close();
+	           
+	         } catch (Exception e2) {
+	            e2.printStackTrace();
+	         }
+	      } 	
+	}
 	
 	
 }

@@ -37,6 +37,17 @@ public class CommunityVO {
 	}
 
 
+	
+
+
+	public CommunityVO(String user_id, String article_title, String article_content ) {
+		super();
+		this.article_title = article_title;
+		this.article_content = article_content;
+		this.user_id = user_id;
+	}
+
+
 
 
 

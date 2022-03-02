@@ -1,9 +1,9 @@
 <%@page import="com.model.CommunityVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CommunityDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <% request.setCharacterEncoding("EUC-KR"); %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("UTF-8"); %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>�Խ���</title>
+    <title>게시판</title>
     <link rel="stylesheet" href="../../assets_board/css/main_board.css" />
     <style>
         table tbody tr {
@@ -45,14 +45,14 @@
                 <section class="main">
 
                     <header class="major">
-                        <h1>�Խ���</h1>
-                        <p>���� �Խ���</p>
+                        <h1>게시판</h1>
+                        <p>자유 게시판</p>
                     </header>
 
                     <div class="table-wrapper">
                         <div style="display:flex; justify-content:space-between;">
-                            <span>�� ���� : </span>
-                            <button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/app/board/CommunityWrite.jsp'">�۾���</button>
+                            <span>글 개수 : <%=al.size() %> </span>
+                            <button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/app/board/CommunityWrite.jsp'">글쓰기</button>
                         </div>
 
                         <table>
@@ -61,11 +61,11 @@
                             </caption>
                             <thead>
                                 <tr>
-                                    <th>��ȣ</th>
-                                    <th>����</th>
-                                    <th>�ۼ���</th>
-                                    <th>��¥</th>
-                                    <th>��ȸ��</th>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>날짜</th>
+                                    <th>조회수</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,12 +74,11 @@
 									for(int i = al.size()-1;i >= 0;i--){
 								%>
 								<tr>
-									<td><%=al.get(i).getArticle_seq()%></td>
-									<td><a href="boardView.jsp?num=<%=al.get(i).getArticle_seq()%>"></a></td>
-									<td><%=al.get(i).getArticle_title()%></td>
-									<td><%=al.get(i).getUser_id() %></td>
-									<td><%=al.get(i).getArticle_date() %></td>
-									<td><%=al.get(i).getArticle_cnt() %></td>
+									<td><%=al.get(i).getArticle_seq()%></td> <!-- 글 번호 -->
+									<td><a href="CommunityView.jsp?num=<%=al.get(i).getArticle_seq()%>"><%=al.get(i).getArticle_title() %></a></td> 	<!-- 게시물 -->
+									<td><%=al.get(i).getUser_id() %></td>	<!-- 작성자 -->
+									<td><%=al.get(i).getArticle_date() %></td>	<!-- 작성날짜 -->
+									<td><%=al.get(i).getArticle_cnt() %></td>	<!-- 조회수 -->
 								</tr>
 								
 								<%
