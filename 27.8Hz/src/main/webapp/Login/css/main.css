@@ -489,8 +489,16 @@ iframe {
   }
 }
 
+#nkicons{
+  display: flex;
+}
 #kakao_id_login img{
   width: 140px;
   height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+#naver_id_login{
+  
 }
 
