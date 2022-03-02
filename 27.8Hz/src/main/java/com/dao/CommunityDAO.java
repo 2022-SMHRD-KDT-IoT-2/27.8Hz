@@ -10,20 +10,58 @@ import com.model.CommunityVO;
 
 public class CommunityDAO {
 	
-	public ArrayList<CommunityVO> getList() {
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	
+	
+	
+	public void conn() {
+	      try {
+	         Class.forName("oracle.jdbc.driver.OracleDriver");
+	         String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+	         String dbid = "campus_d_1_0216";
+	         String dbpw = "smhrd1";
+	         
+	         conn = DriverManager.getConnection(url, dbid, dbpw);
+	         
+	      } catch (Exception e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
+	   }
+	
+	
+	
+	
+	public void close() {
+		try {
+			if(rs!=null) {
+			rs.close();
+			}
+			
+			if(psmt!=null) {
+			psmt.close();
+			}
+			
+			if(conn!=null) {
+			conn.close();	
+			}
+			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+	}
+	
+	
+	
+	public ArrayList<CommunityVO> C_getList() {
+		
 		
 		ArrayList<CommunityVO> al = new ArrayList<CommunityVO>();
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
-			String dbid = "campus_d_1_0216";
-			String dbpw = "smhrd1";
-			
-			conn = DriverManager.getConnection(url,dbid,dbpw);
+			conn();
 				
 			//				게시물번호				제목				ID 		작성날짜			조회수
 			String sql = "select article_seq, article_title, user_id, article_date,  article_cnt  from t_community";
@@ -50,15 +88,48 @@ public class CommunityDAO {
 			e.printStackTrace();
 		}finally {
 			try {
-				rs.close();
-				psmt.close();
-				conn.close();			
+				close();
+				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
 		return al;
 	}
+	
+	
+	
+	
+	
+	public int boardWrite(String boardTitle, String boardContent, String userID) {
+		
+		int cnt =0;
+		
+		try {
+		conn();
+		
+		String sql = "insert into T_COMMUNITY values(T_COMMUNITY_SEQ.nextval, ?, ?, null, sysdate, 0, ?, 0)";
+		
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, boardTitle);
+		psmt.setString(2, boardContent);
+		psmt.setString(3, userID);
+
+		cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+	
+			e.printStackTrace();
+		}finally {
+			
+			close();
+
+		}
+		
+		return cnt;
+	}
+	
+	
 	
 	
 }
