@@ -1,3 +1,6 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="com.model.GpsVO"%>
+<%@page import="com.model.GpsDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -15,12 +18,41 @@
 </head>
 <body>
 	<%
+		//위도와 경도 값 받아오기
 		String lat = request.getParameter("LAT");
 		String lon = request.getParameter("LON");
+		double r_lat = 0;
+		double r_lon = 0;
 		
+		//실수형 소수점 형식 변환 클래스
+		DecimalFormat df  = new DecimalFormat("0.0000");
+		
+		GpsDAO dao = new GpsDAO();
+		GpsVO vo = dao.selectVal();
 		
 		if(!(lat == null && lon == null)){
-			System.out.println("LAT = " + lat + " LON = " + lon);			
+			
+			//문자열 경도, 위도 실수형으로 변환
+			r_lat = Integer.parseInt(lat) / 1000000.0;
+			r_lon = Integer.parseInt(lon) / 1000000.0;
+			
+			//r_lat, r_lon 타입 변환
+			double x = Double.parseDouble(df.format(r_lat));
+			double y = Double.parseDouble(df.format(r_lon));
+			//System.out.println("x      = " + x + " y      = " + y);
+			
+			//db에 들어간 마지막 위도경도 값 가져오기
+			double getLat = Double.parseDouble(df.format(vo.getLat()));
+			double getLon = Double.parseDouble(df.format(vo.getLon()));
+			//System.out.println("getLat = " + getLat + " getLon = " + getLon);
+			
+			//현재가져온 위도경도값과 db마지막 위도경도값이 같지않을 때
+			if(!(x==getLat && y==getLon)){
+				dao.insertVal(r_lat, r_lon);
+				System.out.println("dao.insertVal() 실행완료!");
+				//System.out.println("GpsVO LAT = " + vo.getLat() + " GpsVO LON = " + vo.getLon());				
+			}
+			//System.out.println("LAT = " + r_lat + " LON = " + r_lon);			
 		}
 	%>
 	
@@ -31,17 +63,12 @@
 	        <span id="centerAddr"></span>
 	    </div>
 	</div>
-	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4c3aed63b12ab2792059ca71430ad441&libraries=services"></script>
 	<script>
 		
 		//위도 경도 변수
-		var lat = <%=lat %>;
-		var lon = <%=lon %>;
-		
-		if(lat != null && lon != null){
-			window.location.reload();
-		}
+		var lat = <%=vo.getLat() %>;
+		var lon = <%=vo.getLon() %>;
 		
 		console.log(lat);
 		console.log(lon);
@@ -133,6 +160,8 @@
 		        }
 		    }    
 		}
+		
+		
 	</script>
 	
 </body>

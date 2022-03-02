@@ -70,6 +70,33 @@ public class GpsDAO {
 		return vo;
 	}// end of insertVal
 	
+	public GpsVO selectVal() {
+		GpsVO vo = null;
+		
+		try {			
+			conn();
+			//위도경도값 t_gps테이블에 저장
+			String sql = "select lat, lon from t_gps order by m_time desc";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				Double lat = rs.getDouble(1);
+				Double lon = rs.getDouble(2);
+				
+				vo = new GpsVO(lat, lon);
+				break;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}// end of selectVal
 	
 	
 	

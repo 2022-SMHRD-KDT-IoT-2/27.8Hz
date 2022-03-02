@@ -4,6 +4,7 @@ public class GpsVO {
 	private double lat; 
 	private double lon;
 	
+	public GpsVO() {}
 	public GpsVO(double lat, double lon) {
 		super();
 		this.lat = lat;
