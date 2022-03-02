@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.model.MonitoringVO;
@@ -47,11 +48,18 @@ public class MonitoringDAO {
 	public ArrayList<MonitoringVO> selectMonitoring(String driver_id) {
 		ArrayList<MonitoringVO> selectMonitoring = new ArrayList<>();
 
+		// 현재 날짜 구하기 (시스템 시계, 시스템 타임존)
+		LocalDate now = LocalDate.now();
+		
+		//현재 날짜 문자열로 변환
+		String date = now.toString();
+		
 		try {
 			connect();
-			String sql = "select * from t_monitoring where driver_id = ?";
+			String sql = "select * from t_monitoring where driver_id = ? and reg_date <= ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, driver_id);
+			pst.setString(2, date);
 
 			rs = pst.executeQuery();
 
