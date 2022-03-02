@@ -35,7 +35,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-12">
-					<div class="wrap d-md-flex">
+					<div class="wrap d-md-flex">l
 						<div class="text-wrap p-4 p-lg-5 d-flex img"
 							style="background-image: url(images/bg.jpg);">
 							<div class="text w-100">

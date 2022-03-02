@@ -8197,7 +8197,7 @@ h1, h2, h3, h4, h5,
   position: relative;
   z-index: 0; }
   .text-wrap:after {
-    background: #6807f9;
+    background: #000000;
     position: absolute;
     top: 0;
     left: 0;
@@ -8318,7 +8318,7 @@ textarea.form-control {
     .social-media .social-icon:hover, .social-media .social-icon:focus {
       background: #6807f9; }
       .social-media .social-icon:hover span, .social-media .social-icon:focus span {
-        color: #fff; }
+        color: #000; }
 
 .checkbox-wrap {
   display: block;
@@ -8406,3 +8406,13 @@ textarea.form-control {
         border: 1px solid transparent;
         background: #6807f9;
         color: #fff; }
+
+.nvicon img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+.kkicon img {
+  width: 30px;
+  height: 30px;
+}

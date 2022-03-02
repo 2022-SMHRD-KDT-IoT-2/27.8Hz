@@ -489,5 +489,8 @@ iframe {
   }
 }
 
-
+#kakao_id_login img{
+  width: 140px;
+  height: 40px;
+}
 
