@@ -1,4 +1,4 @@
-package com.model;
+package com.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.model.UserVO;
 
 
 @WebServlet("/CommentCon")
