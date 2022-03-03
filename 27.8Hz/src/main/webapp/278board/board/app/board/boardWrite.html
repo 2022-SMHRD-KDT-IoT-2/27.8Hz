@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets_board/css/main_board.css" />
+    <style>
+        form textarea{
+            border-radius:0; 
+            resize:none;
+            color:black !important;
+        }
+        
+        form div#reply{
+            display:flex;
+            margin-bottom:3%;
+        }
+        
+        input[type='submit']:not(#register), input[type='button'] {border-radius:0;}
+        
+        ul.actions li {
+            padding: 0 0 0 0.2em;
+        }
+        
+       
+        
+        input[type='file']{
+            display:none;
+        }
+        
+        div.files{
+            text-align:center;
+            margin-right: 3%;
+        }
+        
+        textarea {
+            font-size: 1em;
+                  font-weight: 600;
+                  letter-spacing: 0.1em;
+        }
+        
+    </style>
+    </head>
+    <body class="is-preload">
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+    
+            <!-- Wrapper -->
+            <div class="wrapper">
+                <div class="inner">
+                    <jsp:include page="/app/fix/header.jsp"/>
+                </div>
+            </div>
+    
+            <!-- Wrapper -->
+            <div class="wrapper">
+                <div class="inner">
+    
+                    <!-- Main -->
+                    <section class="main">
+                        <a href="#" class="image main"><img src="${pageContext.request.contextPath}/images/boardView.png" alt="" /></a>
+                        <div class="col-12">
+                            <ul class="actions" style="display:flex; justify-content:flex-end;">
+                                <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/board/BoardListOk.bo'"/></li>
+                            </ul>
+                        </div>
+                        <form action="${pageContext.request.contextPath}/board/BoardWriteOk.bo" name="writeForm" method="post" enctype="multipart/form-data">
+                            <header class="major">
+                                <p>
+                                    <input id="boardTitle" name="boardTitle" type="text" placeholder="제목 입력">
+                                </p>
+                                <p style="text-align:left; margin-bottom:1%; margin-top:-1.75em;">작성자 : </p>
+                            </header>
+                            <hr style="margin-top:0;">
+                            
+                            <div style="margin-top:3%;">
+                                <textarea name="boardContent" placeholder="내용 작성" style="resize:none;" rows="20"></textarea>
+                            </div>
+
+                            <ul class="actions" style="display:flex; justify-content:center; margin-top:3%;">
+                                <li><input type="button" value="글쓰기" class="primary" onclick="send()"/></li>
+                                <li><input type="button" value="취소" onclick="history.back()"/></li>
+                            </ul>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../../assets_board/js/jquery.min.js"></script>
+    <script src="../../assets_board/js/browser.min.js"></script>
+    <script src="../../assets_board/js/breakpoints.min.js"></script>
+    <script src="../../assets_board/js/util.js"></script>
+    <script src="../../assets_board/js/main.js"></script>
+    <script>
+        function send(){
+            if(!$("input#boardTitle").val()){
+                alert("제목을 작성해주세요.");
+                return;
+            }
+            
+            if(!$("textarea[name='boardContent']").val()){
+                alert("내용을 작성해주세요.");
+                return;
+            }
+            
+            document.writeForm.submit();
+        }
+    </script>
+</html>

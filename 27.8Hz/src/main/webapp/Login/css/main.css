@@ -490,15 +490,14 @@ iframe {
 }
 
 #nkicons{
-  display: flex;
+  margin-left: 15px;
+  margin-top: 60px;
+  
 }
 #kakao_id_login img{
   width: 140px;
   height: 40px;
   float: left;
   margin-right: 10px;
-}
-#naver_id_login{
-  
 }
 
