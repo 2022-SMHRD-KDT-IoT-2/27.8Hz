@@ -69,7 +69,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="label" for="id">아이디</label> <input name="id"
+													<label class="label" for="id">이메일</label> <input name="id"
 														type="text" class="form-control" id="KakaoId">
 												</div>
 											</div>

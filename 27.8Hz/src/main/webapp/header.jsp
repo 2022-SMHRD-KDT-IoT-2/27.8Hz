@@ -139,7 +139,7 @@
 								 -->
 								
 								<%
-									if(vo==null){
+									if(vo==null){ 
 										
 										out.print("<li id='menu-item-20'" + //로그인
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
@@ -147,7 +147,7 @@
 											
 	                                out.print("<li id='menu-item-20'" + //회원가입 
 			                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-	                                    "<a href='SignUP/signup.html' aria-current='page' style='color: #f8ab24;'>Sign Up</a></li>");
+	                                    "<a href='SignUP/signUp.jsp' aria-current='page' style='color: #f8ab24;'>Sign Up</a></li>");
 									
 									}else{
 										System.out.println("(세션)아이디: " + vo.getUser_id() );	// 값 넘어오는지 확인용 삭제 해도 됌
@@ -158,7 +158,7 @@
 										}
 										out.print("<li id='menu-item-20'" + //회원 정보 수정 
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-			                                    "<a href='#' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
+			                                    "<a href='EditProfile.jsp' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
 										
 										out.print("<li id='menu-item-20'" +// 로그 아웃
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
