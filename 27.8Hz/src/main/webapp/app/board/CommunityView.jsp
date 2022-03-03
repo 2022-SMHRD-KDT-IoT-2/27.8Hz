@@ -39,6 +39,14 @@
             width:20%;
             font-weight:bold;
         }
+        
+        pre{
+        font-size: medium;
+        }
+        
+        #replyComment{
+        font-size: larger;
+        }
     </style>
     </head>
     <body class="is-preload">
@@ -83,8 +91,8 @@
                         <a href="#" class="image main"><img src="/images/boardView.png" alt="" /></a>
                         <div class="col-12">
                             <ul class="actions" style="display:flex; justify-content:flex-end;">
-                                <li><input type="button" value="글쓰기" class="primary"/></li>
-                                <li><input type="button" value="목록" class="primary"/></li>
+                               <!--   <li><input type="button" value="글쓰기" class="primary"/></li>-->
+                                <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/app/board/CommunityList.jsp'"/></li>
                                     <li><input type="button" value="수정" onclick="location.href='/board/BoardModify.bo?boardNum=${board.getBoardNum()}'"/></li>
                                     <li><input type="button" value="삭제" onclick="location.href='/board/BoardDeleteOk.bo?boardNum=${board.getBoardNum()}'"/></li>
                                 
@@ -110,12 +118,12 @@
                             <input id="register" type="button" class="primary" value="등록" onclick="comment()"/>
                         </form>
                         <form id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
-                        	<ul class="list-group list-group-flush" id="reply">
+                        	
 				
 								<%for(int i = al.size()-1;i >= 0;i--){%>
-								<li class="list-group-item"><span><%=al.get(i).getComment_con() %> / <%=al.get(i).getUser_id() %></span></li>
+								<pre><%=al.get(i).getUser_id()%></pre><span id="replyComment"><%=al.get(i).getComment_con()%>  </span><hr>
 								<%} %>
-							</ul>
+							
                         </form>
                     </section>
                 </div>
