@@ -56,7 +56,10 @@ public class CommunityDAO {
 	}
 	
 	
-	// 커뮤니티 목록 가져오기
+	
+	
+	
+	//========================== 커뮤니티 목록 가져오기============================
 	public ArrayList<CommunityVO> C_getList() {
 		
 		
@@ -66,7 +69,7 @@ public class CommunityDAO {
 			conn();
 				
 			//				게시물번호				제목				ID 		작성날짜			조회수
-			String sql = "select article_seq, article_title, user_id, article_date,  article_cnt  from t_community";
+			String sql = "select article_seq, article_title, user_id, article_date,  article_cnt  from t_community order by ARTICLE_SEQ";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -102,7 +105,7 @@ public class CommunityDAO {
 	
 	
 	
-	// 글쓰기 버튼 클릭시 게시글 작성
+	// ================================글쓰기 버튼 클릭시 게시글 작성==================
 	public int boardWrite(String boardTitle, String boardContent, String userID) {
 		
 		int cnt =0;
@@ -132,8 +135,7 @@ public class CommunityDAO {
 	}
 	
 	
-	
-	
+	// ================글하나 불러오기 ==============
 	public CommunityVO getOne(int num) {
 	
 		CommunityVO vo = null;
@@ -237,5 +239,66 @@ public ArrayList<CommentVO> getReply(int num) {
 	return al;
 }// end of 
 
+
+//커뮤니티 글 수정
+public int boardModify(String boardTitle, String boardContent, int num) {
 	
+	int cnt =0;
+	
+	try {
+	conn();
+	
+	String sql = "update T_COMMUNITY set ARTICLE_TITLE=?, ARTICLE_CONTENT=? where ARTICLE_SEQ=?";
+	
+	psmt = conn.prepareStatement(sql);
+	psmt.setString(1, boardTitle);
+	psmt.setString(2, boardContent);
+	psmt.setInt(3, num);
+
+	cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+
+		e.printStackTrace();
+	}finally {
+		
+		close();
+
+	}
+	
+	return cnt;
+}
+
+
+//게시글 삭제
+public int CommunityDelete(int num) {
+	int cnt = 0;
+	
+	
+	try {
+		conn();
+		
+
+	String sql = "delete from T_COMMUNITY where ARTICLE_SEQ=?";
+	
+	psmt = conn.prepareStatement(sql);
+	psmt.setInt(1, num);
+	
+	cnt = psmt.executeUpdate();
+			
+	
+	} catch (Exception e) {
+
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+
+	return cnt;
+	
+
+
+}
+
 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.CommunityDAO;
 
 @WebServlet("/boardWriteCon")
-public class boardWriteCon extends HttpServlet {
+public class CommunityWriteCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

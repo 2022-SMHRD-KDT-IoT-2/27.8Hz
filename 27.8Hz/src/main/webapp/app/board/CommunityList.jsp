@@ -1,9 +1,10 @@
+<%@page import="com.model.UserVO"%>
 <%@page import="com.model.CommunityVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CommunityDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% request.setCharacterEncoding("UTF-8"); %>
+<% request.setCharacterEncoding("UTF-8"); %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,7 @@
 		CommunityDAO dao = new CommunityDAO();
 		ArrayList<CommunityVO> al = dao.C_getList();
 		System.out.print(al.size());
+		UserVO vo = (UserVO)session.getAttribute("loginVO");
 	%>
 	
 	
@@ -33,7 +35,7 @@
         <!-- Wrapper -->
         <div class="wrapper">
             <div class="inner">
-                <jsp:include page="/app/fix/header.html" />
+                <jsp:include page="/app/fix/header.html"/>
             </div>
         </div>
 
@@ -45,14 +47,20 @@
                 <section class="main">
 
                     <header class="major">
-                        <h1>게시판</h1>
-                        <p>자유 게시판</p>
+                        <h1>자유 게시판</h1>
+                        <p></p>
                     </header>
 
                     <div class="table-wrapper">
                         <div style="display:flex; justify-content:space-between;">
                             <span>글 개수 : <%=al.size() %> </span>
+                            <%if(vo!=null) 
+                            {
+                            %>
                             <button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/app/board/CommunityWrite.jsp'">글쓰기</button>
+                            <%
+                            } 
+                            %>
                         </div>
 
                         <table>
@@ -79,6 +87,15 @@
 									<td><%=al.get(i).getUser_id() %></td>	<!-- 작성자 -->
 									<td><%=al.get(i).getArticle_date() %></td>	<!-- 작성날짜 -->
 									<td><%=al.get(i).getArticle_cnt() %></td>	<!-- 조회수 -->
+									<!-- 좋아요 ajax -->
+									<form id="like_form">
+									
+															
+									<!--  <td> <input type="button" value="♥" onclick="goodCheck()"/> ${vo.good}</td>-->
+							
+									</form>
+
+
 								</tr>
 								
 								<%
@@ -115,4 +132,25 @@
 <script src="../../assets_board/js/breakpoints.min.js"></script>
 <script src="../../assets_board/js/util.js"></script>
 <script src="../../assets_board/js/main.js"></script>
+<script>
+function goodCheck() {
+    //var ans = confirm("별점을 주시겠습니가?");
+    //if(!ans) {
+    //    return false;
+    //}
+    var query = {idx : ${vo.idx}}
+    
+    $.ajax({
+        url : "${contextPath}/bGood.bo",
+        type: "get",
+        data: query,
+        success:function(data) {
+            //alert("별점이 추가 되었습니다.");
+            location.reload();
+        }
+    });
+}
+
+
+</script>
 </html>
