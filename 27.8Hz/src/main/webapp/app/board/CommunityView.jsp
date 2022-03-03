@@ -1,3 +1,5 @@
+<%@page import="com.model.CommentVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.model.CommunityVO"%>
 <%@page import="com.dao.CommunityDAO"%>
 <%@page import="com.model.UserVO"%>
@@ -51,6 +53,8 @@
 		CommunityDAO dao = new CommunityDAO();
 		CommunityVO vo = dao.getOne(num);
 		
+		ArrayList<CommentVO> al = dao.getReply(num);
+		System.out.println(al.size());
 		
 		UserVO vo2 = (UserVO)session.getAttribute("loginVO");
 		
@@ -106,6 +110,12 @@
                             <input id="register" type="button" class="primary" value="등록" onclick="comment()"/>
                         </form>
                         <form id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
+                        	<ul class="list-group list-group-flush" id="reply">
+				
+								<%for(int i = al.size()-1;i >= 0;i--){%>
+								<li class="list-group-item"><span><%=al.get(i).getComment_con() %> / <%=al.get(i).getUser_id() %></span></li>
+								<%} %>
+							</ul>
                         </form>
                     </section>
                 </div>
@@ -117,4 +127,56 @@
     <script src="../../assets_board/js/breakpoints.min.js"></script>
     <script src="../../assets_board/js/util.js"></script>
     <script src="../../assets_board/js/main.js"></script>
+    <script>
+    
+    function comment(){
+		let ta = document.querySelector("textarea"); //댓글 작성창
+		let replyDiv = document.querySelector("#reply"); //댓글 출력창
+		
+		//JSON({키 : 실제값}) 형식 데이터 만들기
+        let data = {'boardnum':<%=num%> , 'reply':ta.value}
+        
+        let xhr = new XMLHttpRequest()
+        
+        //요청방식 , 요청경로
+        xhr.open('post', '../../CommentCon')
+        
+        //전송데이터의 형식
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
+        
+        //요청 & 전송할 데이터
+        xhr.send(JSON.stringify(data))
+        
+        xhr.onreadystatechange = function(){
+           if(xhr.readyState===XMLHttpRequest.DONE){  //요청성공
+              if(xhr.status===200){ //응답성공
+                 console.log("응답성공")
+                 console.log(xhr.responseText) //응답데이터 확인 (responseXML)
+                 if(xhr.responseText === "success"){
+                    //location.href = "board_list.jsp"
+                    
+                    let li = document.creatElement('li')
+                    li.className = 'list-group-item' //li태그에 클래스 추가
+                    let span = document.createElement('span')
+                    span.innerText = ta.value + '/ <%=vo2.getUser_id()%>'
+                    
+                    li.appendChild(span) //li태그 자식요소로 span 태그 추가
+                    
+                    replyDiv.insertBefore(li, replyDiv.firstChild ) //replyDiv 첫 번째 자식으로 추가
+                    
+                    ta.value=''
+                    
+                 }else{
+                    //check_p.innerText = '아이디/비밀번호를 확인해주세요'
+                 }
+              }else{
+                 console.log("응답실패")
+              }
+           }else{  //요청실패
+              console.log("요청실패")
+           }
+        }
+	}
+    
+    </script>
 </html>

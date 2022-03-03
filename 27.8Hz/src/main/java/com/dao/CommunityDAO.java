@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.model.CommentVO;
 import com.model.CommunityVO;
+
 
 public class CommunityDAO {
 	
@@ -171,7 +173,7 @@ public class CommunityDAO {
 	
 	
 	
-	
+// Á¶È¸¼ö
 public void updateViews(int num) {
 	      
 	      try {
@@ -197,5 +199,43 @@ public void updateViews(int num) {
 	      } 	
 	}
 	
+
+//´ñ±Û
+public ArrayList<CommentVO> getReply(int num) {
+
+	ArrayList<CommentVO> al = new ArrayList<CommentVO>();
+	
+	try {
+		conn();
+		
+		String sql = "select COMMENT_CONTENT, USER_ID from T_COMMENT where ARTICLE_SEQ = ?";
+		
+		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, num);
+		
+		rs = psmt.executeQuery();
+		
+		while(rs.next()){
+			String getContent = rs.getString(1);
+			String getWriter = rs.getString(2);
+			
+			CommentVO vo = new CommentVO(getContent, getWriter);
+			al.add(vo);
+		}//end of while
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			rs.close();
+			psmt.close();
+			conn.close();			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+	}
+	return al;
+}// end of 
+
 	
 }

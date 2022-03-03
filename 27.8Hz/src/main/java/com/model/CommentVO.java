@@ -9,6 +9,13 @@ public class CommentVO {
 	private String user_id; // 
 	private  String comment_likes; // 
 	
+	
+	public CommentVO(String comment_con, String user_id) {
+		super();
+		this.comment_con = comment_con;
+		this.user_id = user_id;
+	}
+
 	public CommentVO(int comment_seq, String article_seq, String comment_con, String comment_date, String user_id,
 			String comment_likes) {
 		super();
