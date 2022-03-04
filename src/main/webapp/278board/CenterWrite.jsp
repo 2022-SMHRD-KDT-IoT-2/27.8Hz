@@ -90,7 +90,7 @@
                                     <section class="main">
                                         <div class="col-12">
                                             <ul class="actions" style="display:flex; justify-content:flex-end;">
-                                                <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/centerList.jsp'" /></li>
+                                                <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CenterList.jsp'" /></li>
                                             </ul>
                                         </div>
                                         <form
@@ -127,24 +127,9 @@
 						</div>
 					</div>
 				</section>
-
-                <!-- Section -->
-
-
             </div>
         </div>
-                    <!-- Footer -->
-                    <footer id="footer">
-                        <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
-                                href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
-                                UP</a>.</p>
-                    </footer>
-
-            </div>
-        </div>
-
-    </div>
-
+</div>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
