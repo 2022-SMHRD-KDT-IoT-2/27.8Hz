@@ -128,35 +128,6 @@
             </div>
         </div>
 
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
-
-                <!-- Search -->
-                <section id="search" class="alt">
-                    <form method="post" action="#">
-                        <input type="text" name="query" id="query" placeholder="Search" />
-                    </form>
-                </section>
-
-                <!-- Menu -->
-                <nav id="menu">
-                    <header class="major">
-                        <h2>Menu</h2>
-                    </header>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">WITH U</a></li>
-                        <li><a href="#">Checks</a></li>
-                        <li><a href="#">Healthy</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Service</a></li>
-                    </ul>
-                    </section>
-
-                    <!-- Section -->
-
-
                     <!-- Footer -->
                     <footer id="footer">
                         <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
