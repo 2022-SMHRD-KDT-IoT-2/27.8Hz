@@ -97,7 +97,7 @@
                         </div>
                         <header class="major">
                         
-                            <h2 style="text-align:left;"><%=vo.getArticle_title() %> </h2>
+                            <h2 style="text-align:left;"> </h2>
                             <p style="text-align:left; margin-bottom:1%">ÀÛ¼ºÀÚ :<%=vo.getUser_id() %> </p>
                         </header>
                         <hr style="margin-top:0;">

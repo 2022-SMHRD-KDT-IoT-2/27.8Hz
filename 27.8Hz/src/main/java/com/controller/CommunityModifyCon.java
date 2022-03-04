@@ -34,9 +34,9 @@ public class CommunityModifyCon extends HttpServlet {
 				
 				if(cnt>0) {
 					
-					response.sendRedirect("./app/board/CommunityList.jsp");
+					response.sendRedirect("./278board/CommunityList.jsp");
 				}else {
-					response.sendRedirect("./app/board/CommunityList.jsp");
+					response.sendRedirect("./278board/CommunityList.jsp");
 				}
 				
 			}

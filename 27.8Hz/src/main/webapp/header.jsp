@@ -119,7 +119,7 @@
                                 </li>
                                 <li id="menu-item-19"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-19">
-                                    <a href="./app/board/CommunityList.jsp" aria-current="page">Community</a>
+                                    <a href="./278board/CommunityList.jsp" aria-current="page">Community</a>
                                 </li>
                                 <li id="menu-item-20"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20">
