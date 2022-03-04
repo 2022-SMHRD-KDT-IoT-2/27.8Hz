@@ -1,3 +1,5 @@
+<%@page import="com.dao.UserDAO"%>
+<%@page import="com.model.UserVO"%>
 <%@page import="com.model.CenterCommentVO"%>
 <%@page import="com.model.CenterVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -62,6 +64,12 @@
 		CenterDAO cdao = new CenterDAO();
 		ArrayList<CenterVO> centerList = cdao.getList();
 		System.out.print(centerList.size());
+		
+		UserVO mvo = (UserVO)session.getAttribute("loginVO");
+		if (mvo!=null) {
+		UserDAO udao = new UserDAO();
+		UserVO uvo = udao.getOneList(mvo.getUser_id());
+		}
 	%>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -124,7 +132,7 @@
 													  		if (ccvo!=null) {								  			
 													  		out.print("<td>답변 완료</td></tr>");
 													  		} else {
-													  			out.print("<td>답변 대기중</td></tr>");
+													  		out.print("<td>답변 대기중</td></tr>");
 													  		}
 														}
 													%>

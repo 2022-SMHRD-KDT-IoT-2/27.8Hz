@@ -56,8 +56,18 @@
 <body class="is-preload">
 	<%
 	UserVO mvo = (UserVO) session.getAttribute("loginVO");
-	String writer = mvo.getUser_id();
+	String writer = null;
+	if (mvo!=null) {
+	writer = mvo.getUser_id();
+	}
 	%>
+	
+	<script>
+		if(<%=mvo%>==null) {
+			alert("로그인 후 이용하세요.")
+			location.href = "CenterList.jsp"
+		}
+	</script>
     <!-- Wrapper -->
     <div id="wrapper">
         <!-- Main -->

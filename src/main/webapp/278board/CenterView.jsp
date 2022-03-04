@@ -63,17 +63,18 @@
 		int num = Integer.parseInt(request.getParameter("num"));
 		CenterDAO cdao = new CenterDAO();
 		CenterVO cvo = cdao.getOneList(num);
+		String writer = cvo.getUser_id();
+		String title = cvo.getQ_title();
+		String content = cvo.getQ_content();
 		
 		CenterCommentVO ccvo = cdao.getReply(num);
 		
 		UserVO mvo = (UserVO)session.getAttribute("loginVO");
-		
 		UserDAO udao = new UserDAO();
-		UserVO uvo = udao.getOneList(mvo.getUser_id());
-		
-		String writer = cvo.getUser_id();
-		String title = cvo.getQ_title();
-		String content = cvo.getQ_content();
+		UserVO uvo = null;
+		if (mvo!=null) {
+		uvo = udao.getOneList(mvo.getUser_id());			
+		}
 	%>
 
     <!-- Wrapper -->
@@ -111,7 +112,7 @@
                                     <section class="main">
                                         <div class="col-12">
                                             <ul class="actions" style="display:flex; justify-content:flex-end;">
-                                                <% if (uvo.getUser_id().equals(writer)) { %>
+                                                <% if (mvo!=null&&uvo.getUser_id().equals(writer)) { %>
 												<li><input id ="update" type="button" value="수정" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWriteUp.jsp?num=<%=num%>'" /></li>
 												<%} %>
                                                 <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CenterList.jsp'" /></li>
@@ -133,12 +134,12 @@
 												<p id="reply">관리자가 곧 답변할 예정입니다.</p>
 											<%} else { %>
 												<p id="reply"><%=ccvo.getA_content()%> </p>
-												<% if (uvo.getAdmin_yn().equals("Y")) {%>
+												<% if (mvo!=null&&uvo.getAdmin_yn().equals("Y")) {%>
 													<input id="delete" type="button" class="primary" value="삭제" onclick="commentDelete()" />
 												<%} %>						
 											<%} %>
                                         </header>
-                                        <% if (uvo.getAdmin_yn().equals("Y")) {%>
+                                        <% if (mvo!=null&&uvo.getAdmin_yn().equals("Y")) {%>
                                         <form method="post" action="#" class="combined"
 										style="width: auto;">
 										<textarea name="content" id="content" placeholder="답변을 작성해주세요."
