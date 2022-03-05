@@ -10,10 +10,12 @@ public class CommentVO {
 	private  String comment_likes; // 
 	
 	
-	public CommentVO(String comment_con, String user_id) {
+	public CommentVO(String comment_con, String user_id, String getDate) {
 		super();
 		this.comment_con = comment_con;
 		this.user_id = user_id;
+		this.comment_date=getDate;
+	
 	}
 
 	public CommentVO(int comment_seq, String article_seq, String comment_con, String comment_date, String user_id,

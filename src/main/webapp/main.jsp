@@ -153,8 +153,10 @@
 										System.out.println("(세션)아이디: " + vo.getUser_id() );	// 값 넘어오는지 확인용 삭제 해도 됌
 										System.out.println("(세션)비밀번호: " +vo.getUser_pw() ); //값 넘어오는지 확인용 삭제 해도 됌
 										
-										if(vo.getUser_id().equals("admin")){
-											out.print("<a href='#'>전체회원 정보> </a>");
+										if(vo.getUser_id().equals("admin@naver.com")){
+											out.print("<li id='menu-item-20'" + //관리자 일때 회원 정보 수정 
+						                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
+				                                    "<a href='./278board/AdminPage.jsp' aria-current='page' style='color: #f8ab24;'>AllUser</a></li>");
 										}
 										out.print("<li id='menu-item-20'" + //회원 정보 수정 
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +

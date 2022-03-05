@@ -202,7 +202,7 @@ public void updateViews(int num) {
 	}
 	
 
-//´ñ±Û
+//´ñ±Û¸ñ·Ï ºÒ·¯¿À±â
 public ArrayList<CommentVO> getReply(int num) {
 
 	ArrayList<CommentVO> al = new ArrayList<CommentVO>();
@@ -210,7 +210,8 @@ public ArrayList<CommentVO> getReply(int num) {
 	try {
 		conn();
 		
-		String sql = "select COMMENT_CONTENT, USER_ID from T_COMMENT where ARTICLE_SEQ = ?";
+		String sql = "select COMMENT_CONTENT, USER_ID, COMMENT_DATE "
+				+ "from T_COMMENT  where ARTICLE_SEQ = ? order by COMMENT_SEQ asc";
 		
 		psmt = conn.prepareStatement(sql);
 		psmt.setInt(1, num);
@@ -220,8 +221,10 @@ public ArrayList<CommentVO> getReply(int num) {
 		while(rs.next()){
 			String getContent = rs.getString(1);
 			String getWriter = rs.getString(2);
+			String getDate  = rs.getString(3);
+		
 			
-			CommentVO vo = new CommentVO(getContent, getWriter);
+			CommentVO vo = new CommentVO(getContent, getWriter, getDate);
 			al.add(vo);
 		}//end of while
 		
@@ -280,6 +283,40 @@ public int CommunityDelete(int num) {
 		
 
 	String sql = "delete from T_COMMUNITY where ARTICLE_SEQ=?";
+	
+	psmt = conn.prepareStatement(sql);
+	psmt.setInt(1, num);
+	
+	cnt = psmt.executeUpdate();
+			
+	
+	} catch (Exception e) {
+
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+
+	return cnt;
+	
+
+
+}
+
+
+
+
+//´ñ±Û»èÁ¦
+public int CommentDelete(int num) {
+	int cnt = 0;
+	
+	
+	try {
+		conn();
+		
+
+	String sql = "delete from T_COMMUNITY where COMMENT_SEQ=?";
 	
 	psmt = conn.prepareStatement(sql);
 	psmt.setInt(1, num);

@@ -11,6 +11,21 @@ public class UserVO {
 	private String user_joindate;
 	private String admin_yn;
 	
+	
+	
+	public UserVO(String user_id, String user_pw, String user_name, String user_phone, String user_carnum,
+			String user_addr, String guardian_phone, String user_joindate) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_phone = user_phone;
+		this.user_carnum = user_carnum;
+		this.user_addr = user_addr;
+		this.guardian_phone = guardian_phone;
+		this.user_joindate = user_joindate;
+	}
+
 	public UserVO(String user_id, String user_pw, String user_name, String user_phone, String user_carnum,
 			String user_addr, String guardian_phone, String user_joindate, String admin_yn) {
 		super();

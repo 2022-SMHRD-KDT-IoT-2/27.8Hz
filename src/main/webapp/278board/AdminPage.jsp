@@ -1,6 +1,5 @@
-<%@page import="com.model.CommentVO"%>
+<%@page import="com.dao.AdminDAO"%>
 <%@page import="com.model.UserVO"%>
-<%@page import="com.model.CommunityVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CommunityDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -14,7 +13,7 @@
 <html>
 
 <head>
-    <title>Community</title>
+    <title>customer management</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -72,8 +71,8 @@
 
 
 <%
-		CommunityDAO dao = new CommunityDAO();
-		ArrayList<CommunityVO> al = dao.C_getList();
+		AdminDAO dao = new AdminDAO();
+		ArrayList<UserVO> al = dao.getUser_List();
 		
 		
 		System.out.print(al.size());
@@ -90,13 +89,14 @@
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="CommunityList.jsp" class="logo"><strong>Community</strong></a>
+                    <a href="CommunityList.jsp" class="logo"><strong>Customer Management</strong></a>
                     <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
                         <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
                         <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                        
                     </ul>
                 </header>
 
@@ -118,11 +118,8 @@
 
 										<div class="table-wrapper">
 											<div style="display:flex; justify-content:space-between;">
-												<span>게시물 개수 : <%=al.size() %></span>
-												<%if(vo!=null){ %>
-												<button style="border-radius:0;"
-													onclick="location.href='${pageContext.request.contextPath}/278board/CommunityWrite.jsp'">글쓰기</button>
-												<%} %>
+												<span>회원 수 : <%=al.size() %></span>
+												
 											</div>
 
 											<table>
@@ -131,11 +128,16 @@
 												</caption>
 												<thead>
 													<tr>
-														<th>번호</th>
-														<th>제목</th>
-														<th>작성자</th>
-														<th>날짜</th>
-														<th>조회수</th>
+														<th></th>
+														<th>Id</th>
+														<th>Pw</th>
+														<th>이름</th>
+														<th>연락처</th>
+														<th>자동차번호</th>
+														<th>주소</th>
+														<th>보호자연락처</th>
+														<th>가입날짜</th>
+														<th>삭제</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -143,14 +145,21 @@
 									<%for(int i = al.size()-1;i >= 0;i--){%>
 									
 									<tr>
-									<td><%=al.get(i).getArticle_seq()%></td> <!-- 글 번호 -->
-									<td><a href="CommunityView.jsp?num=<%=al.get(i).getArticle_seq()%>"><%=al.get(i).getArticle_title() %></a> 	<!-- 게시물 -->
-									<%ArrayList<CommentVO> al2 = dao.getReply(al.get(i).getArticle_seq()); %>
-									[<%=al2.size()%>]</td>
-									<td><%=al.get(i).getUser_id() %></td>	<!-- 작성자 -->
-									<td><%=al.get(i).getArticle_date() %></td>	<!-- 작성날짜 -->
-									<td><%=al.get(i).getArticle_cnt() %></td>	<!-- 조회수 -->
-									<%}%>
+									<td><%=al.size()-i%></td>
+									<td><%=al.get(i).getUser_id()%></td> <!-- 글 번호 -->
+									<td><%=al.get(i).getUser_pw()%>"></td> 	<!-- 게시물 -->
+									<td><%=al.get(i).getUser_name() %></td>	<!-- 작성자 -->
+									<td><%=al.get(i).getUser_phone() %></td>	<!-- 작성날짜 -->
+									<td><%=al.get(i).getUser_carnum() %></td>	<!-- 조회수 -->
+									<td><%=al.get(i).getUser_addr() %></td>	<!-- 조회수 -->
+									<td><%=al.get(i).getGuardian_phone() %></td>	<!-- 조회수 -->
+									<td><%=al.get(i).getUser_joindate() %>	<!-- 조회수 -->
+									<%if(vo!=null){ %>
+                       				<td><input type="button" id="DeleteButton"  style="float: right" value="삭제" onclick="CommentDelete('<%=vo.getUser_id()%>')"/><br>
+									<%} %>
+									</tr>
+									<%} %>
+									
 									
 								
 												</tbody>
@@ -199,19 +208,36 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        function send(){
-            if(!$("input#boardTitle").val()){
-                alert("제목을 작성해주세요.");
-                return;
-            }
-            
-            if(!$("textarea[name='boardContent']").val()){
-                alert("내용을 작성해주세요.");
-                return;
-            }
-            
-            document.writeForm.submit();
+        function CommentDelete(ID) {
+        	let data = {'ID': ID};
+        	let xhr = new XMLHttpRequest();
+        	
+        	//요청방식, 요청경로
+        	xhr.open('post', '../AdminDeleteCon');
+        	//전송 데이터의 형식
+        	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        	//요청 & 전송할 데이터
+        	xhr.send(JSON.stringify(data));
+        	
+        	xhr.onreadystatechange = function() {
+        		if(xhr.readyState===XMLHttpRequest.DONE) { //요청 성공
+        			if(xhr.status===200) { //응답 성공
+        				console.log("응답 성공")
+        				console.log(xhr.responseText) //응답데이터 확인 (XML로 보내는 경우에는 responseXML)
+        				if(xhr.responseText == "success") {
+        					location.reload();
+        				}else {					
+        					location.reload();
+        				}
+        			}else {
+        				console.log("응답 실패")
+        			}
+        		}else {
+        			console.log("요청 실패") //요청 실패
+        		}
+        	}
         }
+        
     </script>
 
 
