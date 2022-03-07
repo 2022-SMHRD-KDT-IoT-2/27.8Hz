@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 col-xs-8">
-                        <a href="header.jsp" title="Illdy Theme Demo">
+                        <a href="main.jsp" title="Illdy Theme Demo">
                             <img class="header-logo-img"
                                 src="images/logo.png"
                                 width="">
@@ -115,7 +115,7 @@
                                 </li>
                                 <li id="menu-item-18"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-18">
-                                    <a href="#" aria-current="page">Healthy</a>
+                                    <a href="./278board/NewsList.jsp" aria-current="page">Healthy</a>
                                 </li>
                                 <li id="menu-item-19"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-19">
@@ -270,7 +270,7 @@
                     <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
                 </ul>
                 <ul class="copyright">
-                    <li>&copy; 27.8Hz</li><li>Design: <a href="#">27.8Hz</a></li>
+                    <li>&copy; 27.8Hz</li><li>Design: <a href="main.jsp">27.8Hz</a></li>
                 </ul>
             </footer>
 

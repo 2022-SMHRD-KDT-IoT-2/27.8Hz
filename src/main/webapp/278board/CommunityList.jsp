@@ -143,7 +143,7 @@
 									<%for(int i = al.size()-1;i >= 0;i--){%>
 									
 									<tr>
-									<td><%=al.get(i).getArticle_seq()%></td> <!-- 글 번호 -->
+									<td><%=i+1%></td> <!-- 글 번호 -->
 									<td><a href="CommunityView.jsp?num=<%=al.get(i).getArticle_seq()%>"><%=al.get(i).getArticle_title() %></a> 	<!-- 게시물 -->
 									<%ArrayList<CommentVO> al2 = dao.getReply(al.get(i).getArticle_seq()); %>
 									[<%=al2.size()%>]</td>
@@ -183,7 +183,7 @@
 						<li><a href="../main.jsp">Home</a></li>
 						<li ><a href="#">WITH U</a></li>
 						<li><a href="#">Checks</a></li>
-						<li><a href="#">Healthy</a></li>
+						<li><a href="NewsList.jsp">Healthy</a></li>
 						<li><a href="CommunityList.jsp">Community</a></li>
 						<li><a href="CenterList.jsp">Service</a></li>
 					</ul>

@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.model.CommunityVO;
+
 public class SignUpDAO {
 
 	Connection conn = null;
@@ -84,5 +86,77 @@ public class SignUpDAO {
 		return cnt;
 	}
 	
+	//이메일 중복체크
+	public int checkId(String id) {
+		int cnt =0;
+		
+		try {
+			conn();
+				
+			
+			String sql = "select * from t_user where user_id = ?"; 
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next() && id.equals(rs.getString(1))) {
+				cnt=0;
+			}else if(id.equals("")) {
+				cnt=2;
+			}else {
+				cnt=1;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+		
+		
 	
-}
+//전화번호 중복체크
+		public int checkTel(String Unum) {
+			int cnt =0;
+			
+			try {
+				conn();
+					
+				
+				String sql = "select USER_PHONE from t_user where USER_PHONE = ?"; 
+				
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, Unum);
+				
+				rs = psmt.executeQuery();
+				
+				if(rs.next() && Unum.equals(rs.getString(1))) {
+					cnt=0;
+				}else {
+					cnt=1;
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					close();
+					
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+			return cnt;
+		}
+	}
+	
+
