@@ -141,10 +141,8 @@ public class SignUpDAO {
 				
 				if(rs.next() && Unum.equals(rs.getString(1))) {
 					cnt=0;
-				}else if(Unum.equals("")) {
-					cnt=1;
 				}else {
-					cnt=2;
+					cnt=1;
 				}
 				
 			}catch(Exception e) {

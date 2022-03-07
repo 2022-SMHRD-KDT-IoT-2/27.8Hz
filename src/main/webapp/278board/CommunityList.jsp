@@ -183,7 +183,7 @@
 						<li><a href="../main.jsp">Home</a></li>
 						<li ><a href="#">WITH U</a></li>
 						<li><a href="#">Checks</a></li>
-						<li><a href="#">Healthy</a></li>
+						<li><a href="NewsList.jsp">Healthy</a></li>
 						<li><a href="CommunityList.jsp">Community</a></li>
 						<li><a href="CenterList.jsp">Service</a></li>
 					</ul>

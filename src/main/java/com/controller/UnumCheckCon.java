@@ -31,9 +31,7 @@ public class UnumCheckCon extends HttpServlet {
 		if(idCheck == 0) {
 			System.out.println("이미 가입된 번호입니다.");
 			
-		}  else if(idCheck==1) {
-			System.out.println("빈칸 입니다.");
-		}	else if (idCheck==2) {
+		}  	else if (idCheck==1) {
 			System.out.println("사용 가능한 번호 입니다.");
 		}
 		

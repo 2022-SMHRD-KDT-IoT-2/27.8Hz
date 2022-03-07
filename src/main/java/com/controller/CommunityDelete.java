@@ -19,11 +19,11 @@ public class CommunityDelete extends HttpServlet {
 		int num = Integer.parseInt(request.getParameter("num"));
 		
 		CommunityDAO dao = new CommunityDAO();
+		int cnt1= dao.CommentDelete(num);
+		int cnt2 = dao.CommunityDelete(num);
 		
-		int cnt = dao.CommunityDelete(num);
 		
-		
-		if(cnt>0) {
+		if((cnt1+cnt2)>1) {
 			
 			response.sendRedirect("./278board/CommunityList.jsp");
 		}else {

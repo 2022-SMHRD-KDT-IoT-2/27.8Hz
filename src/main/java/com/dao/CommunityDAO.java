@@ -316,7 +316,7 @@ public int CommentDelete(int num) {
 		conn();
 		
 
-	String sql = "delete from T_COMMUNITY where COMMENT_SEQ=?";
+	String sql = "delete from T_COMMENT where ARTICLE_SEQ=?";
 	
 	psmt = conn.prepareStatement(sql);
 	psmt.setInt(1, num);
@@ -333,8 +333,6 @@ public int CommentDelete(int num) {
 	}
 
 	return cnt;
-	
-
 
 }
 
