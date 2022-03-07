@@ -10,8 +10,7 @@ public class NewsVO {
 	private String user_id;
 	private int news_likes;
 	
-	public NewsVO(int news_seq, String news_title, String news_content, String news_file, String news_date,
-			int news_cnt, String user_id, int news_likes) {
+	public NewsVO(int news_seq, String news_title, String news_content, String news_file, String news_date, int news_cnt, String user_id, int news_likes) {
 		super();
 		this.news_seq = news_seq;
 		this.news_title = news_title;
@@ -21,6 +20,22 @@ public class NewsVO {
 		this.news_cnt = news_cnt;
 		this.user_id = user_id;
 		this.news_likes = news_likes;
+	}
+
+	public NewsVO(int news_seq, String news_title, String user_id, String news_date, int news_cnt ) {
+		super();
+		this.news_seq = news_seq;
+		this.news_title = news_title;
+		this.news_date = news_date;
+		this.news_cnt = news_cnt;
+		this.user_id = user_id;
+	}
+
+	public NewsVO(String user_id, String news_title, String news_content ) {
+		super();
+		this.news_title = news_title;
+		this.news_content = news_content;
+		this.user_id = user_id;
 	}
 
 	public int getNews_seq() {

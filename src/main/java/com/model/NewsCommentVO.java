@@ -7,7 +7,14 @@ public class NewsCommentVO {
 	private String nc_date;
 	private String user_id;
 	private int nc_likes;
-	
+
+	public NewsCommentVO(String nc_content, String user_id, String getDate, int nc_seq) {
+		this.nc_content = nc_content;
+		this.user_id = user_id;
+		this.nc_date = getDate;
+		this.nc_seq = nc_seq;
+	}
+
 	public NewsCommentVO(int nc_seq, int news_seq, String nc_content, String nc_date, String user_id, int nc_likes) {
 		super();
 		this.nc_seq = nc_seq;
