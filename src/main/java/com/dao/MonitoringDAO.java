@@ -56,7 +56,7 @@ public class MonitoringDAO {
 		
 		try {
 			connect();
-			String sql = "select * from t_monitoring where driver_id = ? and reg_date <= ?";
+			String sql = "select * from t_monitoring where driver_id = ? and reg_date <= ? order by reg_date";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, driver_id);
 			pst.setString(2, date);
@@ -67,7 +67,7 @@ public class MonitoringDAO {
 				int monitoring_seq = rs.getInt("MONITORING_SEQ");
 				int heartrate = rs.getInt("HEART_RATE");
 				int o2 = rs.getInt("O2_SATURATION");
-				int temp = rs.getInt("TEMPERATURE");
+				double temp = rs.getDouble("TEMPERATURE");
 				String regdate = rs.getString("REG_DATE");
 				
 				MonitoringVO mvo = new MonitoringVO(driver_id, monitoring_seq, heartrate, o2, temp, regdate);
