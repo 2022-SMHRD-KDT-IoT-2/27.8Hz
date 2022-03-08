@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container" style="width: 500px; height: 500px;">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+  <button id="hr">심박수</button>
+  <button id="o2">산소포화도</button>
+  <button id="temp">체온</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script>
+    let hr = document.querySelector("#hr");
+    let o2 = document.querySelector("#o2");
+    let temp = document.querySelector("#temp");
+
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6'],
+        datasets: [{
+          label: '심박수',
+          data: [72, 89, 67, 94, 85, 62],
+          backgroundColor: 'rgba(255, 99, 132, 1)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+
+    //심박수 클릭 이벤트
+    hr.addEventListener("click", function(){
+      myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6'],
+          datasets: [{
+            label: '심박수',
+            data: [72, 89, 67, 94, 85, 62],
+            backgroundColor: 'rgba(255, 99, 132, 1)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+
+    //산소포화도 클릭 이벤트
+    o2.addEventListener("click", function(){
+      myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6'],
+          datasets: [{
+            label: '산소포화도',
+            data: [95, 94, 97, 94, 96, 95],
+            backgroundColor: 'rgba(54, 162, 235, 1)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+
+    //체온버튼 클릭 이벤트
+    temp.addEventListener("click", function(){
+      myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6'],
+          datasets: [{
+            label: '체온',
+            data: [36.8, 36.1, 37.0, 36.0, 36.4, 36.7],
+            backgroundColor: 'rgba(255, 159, 64, 1)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+
+  </script>
+</body>
+
+</html>
