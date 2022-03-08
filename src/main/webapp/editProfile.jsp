@@ -92,13 +92,11 @@
 		uvo = udao.getOneList(vo.getUser_id());
 		}
 	%>
-	
+	<!--  -->
     <header id="header" class="header-front-page"
         style="background-image: url(images/bg2.png);background-attachment: fixed;">
+		<div id="bgBlk" style="background: rgba(0,0,0,0.5);">
 
-
-       
-        
         <div class="top-header">       
             <div class="container">
                 <div class="row">
@@ -167,7 +165,7 @@
 										}
 										out.print("<li id='menu-item-20'" + //회원 정보 수정 
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-			                                    "<a href='editCheck.jsp' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
+			                                    "<a href='EditProfile.jsp' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
 										
 										out.print("<li id='menu-item-20'" +// 로그 아웃
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
@@ -211,17 +209,12 @@
                 </ul>
             </nav>
         </div>
-        <div class="bottom-header front-page">
+        <div class="bottom-header front-page" style="padding: 0">
             <div class="container">
                 <div class="row">
+                	<!-- 
                     <div class="col-sm-12"></div>
                         <h1 style="text-align: center;">NOT Drowzy<span class="span-dot" style="color: #f8ab24">,</span><br>NEVER Sleep</h1>
-                    </div>
-                    <div class="col-sm-8 col-sm-offset-2" >
-                        <h3 class="section-description" style="text-align: left; margin-left: 100px; margin-top: 2px"> 운전자들은 모두 도로 위에서 고독합니다. <br>도로 위의 오랜 친구인 라디오 주파수를 따 온 저희 28.8Hz는 <br>당신이 운전대를 잡고 있는 모든 순간 함께하고 싶다는 바람을 가지고 세상 밖으로 나왔습니다. <br>
-                        이제 'WITH U'가 당신과 동행할게요.
-                        </h3>
-                        
                     </div>
 
                     
@@ -230,42 +223,83 @@
                                 class="header-button-one" style="align-items:left">더 알아보기
                     </a>
             </div>
+             -->
+             <div style="backgroud-color: rgba(0,0,0,0.5); width:100%;height:100%">
+	             <form>
+	             	<div style="background: rgba(255,255,255,0.8); width:600px; height:830px; margin:0 auto">
+	             		<h4 style="color: black; padding-top: 30px;">회원 수정</h4>
+	             		
+	        		<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="label for="id" style="color:black">이메일</label>
+								<p><%=uvo.getUser_id() %></p>
+								<font id="checkId" size="2"></font>
+					   		</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="name" style="color:black;">이름</label>
+							<input type="text" id="editName" name="name" class="form-control" style="width:80%; margin: 0 auto">
+	      				</div>
+					</div>
+	             		
+	             	<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="password" style="color:black;">비밀번호</label>
+							<input type="password" id="pw" class="form-control" style="width:80%; margin: 0 auto">
+						</div>
+					</div>	
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="password" style="color:black;">비밀번호 확인</label>
+							<input type="password" id="rePw" class="form-control" style="width:80%; margin: 0 auto">
+						</div>
+					</div>	
+	             		
+	             	<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="address" style="color:black;">주소</label>
+							<input type="text" id="editAddr" name="addr" class="form-control" style="width:80%; margin: 0 auto">
+	      				</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="carnumber" style="color:black;">차량번호</label>
+							<input type="text" id="editCarNum" name="carNum" class="form-control" style="width:80%; margin: 0 auto">
+						</div>
+					</div>
+	             		
+	             	<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="user_num" style="color:black;">연락처</label>
+							<input type="text" id="editPhone" name="phone" class="form-control" id="user_num" style="width:80%; margin: 0 auto">
+							<font id="checkTel" size="2"></font>
+						</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="pro_num" style="color:black;">보호자 연락처</label>
+							<input type="text" id="editGnum" name="gNum" class="form-control" style="width:80%; margin: 0 auto">
+						</div>
+					</div>
+	             		
+	             	<input type="button" id="editSubmit" value="수정하기" style="background-color:#333; height:50px; margin-top:10px;">	
+	             	</div>
+	             </form>
+             </div>
+             
+             
+            
+        </div>
         </div>
     </header>
 
     <div id="page-wrapper">
-
-
-        <!-- Two -->
-            <section id="two" class="wrapper alt style2">
-                <section class="spotlight">
-                    <div class="image"><img src="images/sub01.jpg" alt="" /></div><div class="content">
-                        <h1 style="color: #ffffff;">MY CHECK</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                </section>
-                <section class="spotlight">
-                    <div class="image"><img src="images/sub02.jpg" alt="" /></div><div class="content">
-                        <h1 style="color:#ffffff; text-align: right;">HEALTH NEWS</h1>
-                        <p style="text-align: right;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                </section>
-                <section class="spotlight">
-                    <div class="image"><img src="images/sub03.jpg" alt="" /></div><div class="content">
-                        <h1 style="color:#ffffff;">COMMUNITY</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </div>
-                </section>
-
-                <section class="spotlight">
-                    <div class="image"><img src="images/sub04.jpg" alt="" /></div><div class="content">
-                        <h1 style="color:#ffffff; text-align: right;">SERVICE</h1>
-                        <p style="text-align: right;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </div>
-                </section>
-            </section>
-
-        
 
         <!-- Footer -->
             <footer id="footer">
@@ -291,7 +325,31 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
+	<script>
+		let editName = document.querySelector("#editName");
+		let editAddr = document.querySelector("#editAddr");
+		let editCarNum = document.querySelector("#editCarNum");
+		let editPhone = document.querySelector("#editPhone");
+		let editGnum = document.querySelector("#editGnum");
+		let pw = document.querySelector("#pw");
+		let rePw = document.querySelector("#rePw");
+		let editSubmit = document.querySelector("#editSubmit");
+		
+		editName.value = <%=uvo.getUser_name() %>
+		editAddr.value = <%=uvo.getUser_addr() %>
+		editCarNum.value = <%=uvo.getUser_carnum() %>
+		editPhone.value = <%=uvo.getUser_phone() %>
+		editGnum.value = <%=uvo.getGuardian_phone() %>
+		
+		editSubmit.addEventListener("click", function() {
+			console.log(pw.value)
+			console.log(rePw.value)
+			if(pw.value != rePw.value){
+				alert("비밀번호를 확인하세요!");
+			}
+		});
+		
+	</script>
 
 </body>
 
