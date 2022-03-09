@@ -73,14 +73,6 @@
 		MonitoringDAO dao = new MonitoringDAO();
 		ArrayList<MonitoringVO> al = dao.selectMonitoring(mvo.getUser_id());
 		
-		if(al.size() == 0){
-			//response.sendRedirect("../main.jsp");    					
-		}
-		
-		//al.get(0).getRegdate().substring(5, 10)
-		//al.get(0).getHeartrate()
-		//al.get(0).getO2()
-		//al.get(0).getTemp()
 		
 	%>
     <!-- Wrapper -->
