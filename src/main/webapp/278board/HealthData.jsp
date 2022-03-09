@@ -62,18 +62,16 @@
 </head>
 <body class="is-preload">
 	<%
-		CenterDAO cdao = new CenterDAO();
-		ArrayList<CenterVO> centerList = cdao.getList();
-		System.out.print(centerList.size());
-		
 		UserVO mvo = (UserVO)session.getAttribute("loginVO");
+	
+		UserVO uvo = null;
 		if (mvo!=null) {
-		UserDAO udao = new UserDAO();
-		UserVO uvo = udao.getOneList(mvo.getUser_id());
+			UserDAO udao = new UserDAO();
+			uvo = udao.getOneList(mvo.getUser_id());
 		}
 		
 		MonitoringDAO dao = new MonitoringDAO();
-    	ArrayList<MonitoringVO> al = dao.selectMonitoring("user_id01@naver.com");
+    	ArrayList<MonitoringVO> al = dao.selectMonitoring(mvo.getUser_id());
     	al.get(0).getRegdate().substring(0, 10);
 		
 	%>
@@ -151,6 +149,11 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	<script>
+		if(<%=mvo%> == null){
+			alert("로그인 후 이용하세요!");
+			location.href = "../main.jsp";
+		}
+		
 	    let ctx1 = document.getElementById('myChart1').getContext('2d');
 	    let ctx2 = document.getElementById('myChart2').getContext('2d');
 	    

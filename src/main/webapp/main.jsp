@@ -118,7 +118,7 @@
                                 </li>
                                 <li id="menu-item-17"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">
-                                    <a href="#" aria-current="page">Check</a>
+                                    <a href="./278board/HealthData.jsp" aria-current="page">Check</a>
                                 </li>
                                 <li id="menu-item-18"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-18">
