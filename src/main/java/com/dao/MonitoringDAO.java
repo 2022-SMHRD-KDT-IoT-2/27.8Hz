@@ -76,11 +76,7 @@ public class MonitoringDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return selectMonitoring;
 	}
@@ -130,5 +126,32 @@ public class MonitoringDAO {
 			close();
 		}
 		return cnt;
+	}
+
+	public boolean selectMo () {
+		// 현재 날짜 구하기 (시스템 시계, 시스템 타임존)
+		LocalDate now = LocalDate.now();
+				
+		//현재 날짜 문자열로 변환
+		String date = now.toString();
+		boolean tf = false;
+		
+		try {
+			connect();
+			String sql = "SELECT * FROM T_MONITORING WHERE TO_CHAR(REG_DATE,'yyyy-mm-dd') = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, date);
+
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				tf = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return tf;
+
 	}
 }
