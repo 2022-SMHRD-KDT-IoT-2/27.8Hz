@@ -79,4 +79,38 @@ public class UserDAO {
 		}
 		return uvo;
 	}
-}
+	
+	public int updateInfo(String user_id,String user_name,String user_pw,String user_addr,String user_carnum,String user_phone, String guardian_phone) {
+		int cnt = 0;
+		try {
+			connect();
+			
+			String sql = "update t_user"
+					+ " set user_pw = ?, user_name = ?, user_phone = ?, user_ carnum = ?, user_addr = ?, guardian_phone = ?"
+					+ "where user_id = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, user_pw);
+			pst.setString(2, user_name);
+			pst.setString(3, user_phone);
+			pst.setString(4, user_carnum);
+			pst.setString(5, user_addr);
+			pst.setString(6, guardian_phone);
+			pst.setString(7, user_id);
+
+			cnt = pst.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pst.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return cnt;
+	}// end of updateInfo
+	
+}// end of class

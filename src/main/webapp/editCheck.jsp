@@ -165,7 +165,7 @@
 										}
 										out.print("<li id='menu-item-20'" + //회원 정보 수정 
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-			                                    "<a href='EditProfile.jsp' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
+			                                    "<a href='editCheck.jsp' aria-current='page' style='color: #f8ab24;'>Edit profile</a></li>");
 										
 										out.print("<li id='menu-item-20'" +// 로그 아웃
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +

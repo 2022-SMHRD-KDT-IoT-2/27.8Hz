@@ -19,7 +19,8 @@ public class LoginCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
+		
 		PrintWriter out =response.getWriter();
 		
 		String id = request.getParameter("email");
