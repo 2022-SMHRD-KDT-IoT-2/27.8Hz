@@ -137,6 +137,29 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+		Kakao.init('4c3aed63b12ab2792059ca71430ad441');
+		Kakao.Auth.login({
+			success: function(authObj){
+				Kakao.API.request({
+					url: '/v2/user/me',
+					success: function(res){
+						console.log(res);
+						
+						var email = res.kakao_account.email;
+						var nick = res.kakao_account.profile.nickname;
+						var KakaoId = document.querySelector("#KakaoId");
+						var name = document.querySelector("#name");
+						KakaoId.value = email;
+						name.value = nick;
+					}
+				})
+			}
+		});
+		
+	</script>
+  
   
   <script> 
   
