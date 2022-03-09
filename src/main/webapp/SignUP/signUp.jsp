@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-	<!-- ³×ÀÌ¹ö ·Î±×ÀÎ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<!-- ë„¤ì´ë²„ ë¡œê·¸ì¸ -->
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.net.URL" %>
 <%@ page import="java.net.HttpURLConnection" %>
@@ -13,7 +13,7 @@
 <html lang="en">
   <head>
   	<title>Join us</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="id">ÀÌ¸ŞÀÏ</label>
+													<label class="label" for="id">ì´ë©”ì¼</label>
 													<input type="text" class="form-control" name="id" id="input_id">
 													<font id="checkId" size="2"></font>
 							      				</div>
@@ -61,35 +61,35 @@
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="name">ÀÌ¸§</label>
+													<label class="label" for="name">ì´ë¦„</label>
 													<input type="text" name="name" class="form-control">
 							      				</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="password">ºñ¹Ğ¹øÈ£</label>
+													<label class="label" for="password">ë¹„ë°€ë²ˆí˜¸</label>
 													<input type="password" name="pw" class="form-control">
 												</div>
 											</div>
 									
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="address">ÁÖ¼Ò</label>
+													<label class="label" for="address">ì£¼ì†Œ</label>
 													<input type="text" name="addr" class="form-control">
 							      				</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="carnumber">Â÷·®¹øÈ£</label>
+													<label class="label" for="carnumber">ì°¨ëŸ‰ë²ˆí˜¸</label>
 													<input type="text" name="carNum" class="form-control">
 												</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="user_num">¿¬¶ôÃ³</label>
+													<label class="label" for="user_num">ì—°ë½ì²˜</label>
 													<input type="text" name="phone" class="form-control" id="user_num">
 													<font id="checkTel" size="2"></font>
 												</div>
@@ -97,7 +97,7 @@
 											
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="label" for="pro_num">º¸È£ÀÚ ¿¬¶ôÃ³</label>
+													<label class="label" for="pro_num">ë³´í˜¸ì ì—°ë½ì²˜</label>
 													<input type="text" name="gNum" class="form-control">
 												</div>
 											</div>
@@ -163,7 +163,7 @@
   
   <script> 
   
-//ÀÌ¸ŞÀÏ Á¤±Ô½Ä Ã¼Å©
+//ì´ë©”ì¼ ì •ê·œì‹ ì²´í¬
   function CheckEmail(str){                                                 
      var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
      if(!reg_email.test(str)) {                            
@@ -173,7 +173,7 @@
      }                            
 }
  
-//¿¬¶ôÃ³ Á¤±Ô½Ä Ã¼Å©
+//ì—°ë½ì²˜ ì •ê·œì‹ ì²´í¬
   function CheckNum(num){                                                 
      var reg_Num =/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
      if(!reg_Num.test(num)) {                            
@@ -183,17 +183,17 @@
      }                            
 }
   
-  //¹öÆ°¾øÀÌ ½Ç½Ã°£ ¾ÆÀÌµğ Áßº¹Ã¼Å©
+  //ë²„íŠ¼ì—†ì´ ì‹¤ì‹œê°„ ì•„ì´ë”” ì¤‘ë³µì²´í¬
   	$('#input_id').focusout(function(){
   		let userId = $('#input_id').val();
   		
   		
   		if(userId==""){
-  			$('#checkId').html('ÀÌ¸ŞÀÏÀ» ÀÔ·Â ÇØ ÁÖ¼¼¿ä.');
+  			$('#checkId').html('ì´ë©”ì¼ì„ ì…ë ¥ í•´ ì£¼ì„¸ìš”.');
 				$("#checkId").attr('color', 'red');
   			
   		}else if(!CheckEmail(userId)){
-  			$('#checkId').html('Example@naver.com Çü½Ä¿¡ ¸Â°Ô ÀÔ·ÂÇØ ÁÖ¼¼¿ä.');
+  			$('#checkId').html('Example@naver.com í˜•ì‹ì— ë§ê²Œ ì…ë ¥í•´ ì£¼ì„¸ìš”.');
 			$("#checkId").attr('color', 'red');
   		
   		
@@ -208,32 +208,32 @@
   				
   				success : function(result){
   					if(result == 0 ){
-  						$('#checkId').html('»ç¿ëÁßÀÎ ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù.');
+  						$('#checkId').html('ì‚¬ìš©ì¤‘ì¸ ì´ë©”ì¼ ì…ë‹ˆë‹¤.');
   						$("#checkId").attr('color', 'red');
   					} else if(result==1){
-  						$('#checkId').html('»ç¿ëÇÒ ¼ö ÀÖ´Â ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù.');
+  						$('#checkId').html('ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì´ë©”ì¼ ì…ë‹ˆë‹¤.');
   						$("#checkId").attr('color', 'green');
   					} 
   				},
   				error : function(){
-  					alert("¼­¹ö¿äÃ»½ÇÆĞ");
+  					alert("ì„œë²„ìš”ì²­ì‹¤íŒ¨");
   				}
   		})
   		}
   	})
   	
   	
-  	// ¿¬¶ôÃ³ Áßº¹ È®ÀÎ
+  	// ì—°ë½ì²˜ ì¤‘ë³µ í™•ì¸
   	$('#user_num').focusout(function(){
   		let userNum = $('#user_num').val();
   		console.log()
   		
   		if(userNum==""){
-  			$('#checkTel').html('ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+  			$('#checkTel').html('ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.');
 			$("#checkTel").attr('color', 'red');
   		}else{
   			 if(!CheckNum(userNum)){
-  	  			$('#checkTel').html('010-0000-0000 Çü½Ä¿¡ ¸Â°Ô ÀÔ·ÂÇØ ÁÖ¼¼¿ä.');
+  	  			$('#checkTel').html('010-0000-0000 í˜•ì‹ì— ë§ê²Œ ì…ë ¥í•´ ì£¼ì„¸ìš”.');
   				$("#checkTel").attr('color', 'red');
 
   	  		}
@@ -246,16 +246,16 @@
   				
   				success : function(result){
   					if(result == 0 ){
-  						$('#checkTel').html('ÀÌ¹Ì °¡ÀÔµÈ ÀüÈ­¹øÈ£ ÀÔ´Ï´Ù.');
+  						$('#checkTel').html('ì´ë¯¸ ê°€ì…ëœ ì „í™”ë²ˆí˜¸ ì…ë‹ˆë‹¤.');
   						$("#checkTel").attr('color', 'red');
   						
   					}else if(result == 1){
-  						$('#checkTel').html('»ç¿ë°¡´ÉÇÑ ÀüÈ­¹øÈ£ ÀÔ´Ï´Ù.');
+  						$('#checkTel').html('ì‚¬ìš©ê°€ëŠ¥í•œ ì „í™”ë²ˆí˜¸ ì…ë‹ˆë‹¤.');
   						$("#checkTel").attr('color', 'green');
   					} 
   				},
   				error : function(){
-  					alert("¼­¹ö¿äÃ»½ÇÆĞ");
+  					alert("ì„œë²„ìš”ì²­ì‹¤íŒ¨");
   				}
   		})
   		}}

@@ -14,7 +14,7 @@
         
         <title>27.8Hz</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C900%2C700%2C300%2C300italic%7CLato%3A300%2C400%2C700%2C900%7CPoppins%3A300%2C400%2C500%2C600%2C700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C900%2C700%2C300%2C300italic%7CLato%3A300%2C400%2C700%2C900%7CPoppins%3A300%2C400%2C500%2C600%2C700&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C900%2C700%2C300%2C300italic%7CLato%3A300%2C400%2C700%2C900%7CPoppins%3A300%2C400%2C500%2C600%2C700&#038;display=swap" /></noscript>
         <meta name="robots" content="noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-        <meta property="og:locale" content="en_US">
+         <meta property="og:locale" content="en_US">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Front Page - Illdy Theme Demo">
         <meta property="og:url" content="https://demo.colorlib.com/illdy/">
