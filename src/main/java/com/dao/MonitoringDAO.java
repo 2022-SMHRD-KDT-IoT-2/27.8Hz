@@ -138,7 +138,7 @@ public class MonitoringDAO {
 		
 		try {
 			connect();
-			String sql = "SELECT * FROM T_MONITORING WHERE TO_CHAR(REG_DATE,'yyyy-mm-dd') = ?";
+			String sql = "SELECT * FROM T_MONITORING WHERE TO_CHAR(REG_DATE,'yyyy-mm-dd') = ? AND DRIVER_ID = wish@naver.com";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, date);
 

@@ -63,7 +63,7 @@
 <body class="is-preload">
 	<%
 		UserVO mvo = (UserVO)session.getAttribute("loginVO");
-	
+		
 		UserVO uvo = null;
 		if (mvo!=null) {
 			UserDAO udao = new UserDAO();
@@ -71,8 +71,16 @@
 		}
 		
 		MonitoringDAO dao = new MonitoringDAO();
-    	ArrayList<MonitoringVO> al = dao.selectMonitoring(mvo.getUser_id());
-    	al.get(0).getRegdate().substring(0, 10);
+		ArrayList<MonitoringVO> al = dao.selectMonitoring(mvo.getUser_id());
+		
+		if(al.size() == 0){
+			//response.sendRedirect("../main.jsp");    					
+		}
+		
+		//al.get(0).getRegdate().substring(5, 10)
+		//al.get(0).getHeartrate()
+		//al.get(0).getO2()
+		//al.get(0).getTemp()
 		
 	%>
     <!-- Wrapper -->
@@ -149,133 +157,135 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	<script>
-		if(<%=mvo%> == null){
-			alert("로그인 후 이용하세요!");
+		if(<%=al.size()%> == 0){
+			alert("저장된 정보가 없습니다.");
 			location.href = "../main.jsp";
+		}else{
+			 let ctx1 = document.getElementById('myChart1').getContext('2d');
+			    let ctx2 = document.getElementById('myChart2').getContext('2d');
+			    
+			    let myChart1 = new Chart(ctx1, {
+			      type: 'bar',
+			      data: {
+			        labels: [
+			        	'<%=al.get(0).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(1).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(2).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(3).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(4).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(5).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(6).getRegdate().substring(5, 10) %>'
+			        ],
+			        datasets: [{
+			          label: '심박수',
+			          type: 'line',
+			          data: [
+						<%=al.get(0).getHeartrate() %>,
+						<%=al.get(1).getHeartrate() %>,
+						<%=al.get(2).getHeartrate() %>,
+						<%=al.get(3).getHeartrate() %>,
+						<%=al.get(4).getHeartrate() %>,
+						<%=al.get(5).getHeartrate() %>,
+						<%=al.get(6).getHeartrate() %>
+						],
+			          backgroundColor: 'rgba(255, 99, 132, 0)',
+			          borderColor: 'rgba(255, 99, 132, 1)',
+			          borderWidth: 3,
+			            yAxesID : 'yLeft'
+			        },{
+			            label: '산소포화도',
+			            type: 'line',
+			            data: [
+			            	<%=al.get(0).getO2() %>,
+			            	<%=al.get(1).getO2() %>,
+			            	<%=al.get(2).getO2() %>,
+			            	<%=al.get(3).getO2() %>,
+			            	<%=al.get(4).getO2() %>,
+			            	<%=al.get(5).getO2() %>,
+			            	<%=al.get(6).getO2() %>
+			            ],
+			            backgroundColor: 'rgba(54, 162, 235, 0)',
+			            borderColor: 'rgba(54, 162, 235, 1)',
+			            borderWidth: 3,
+			            yAxesID : 'yLeft'
+			          }]
+			      },
+			      options: {
+			        scales : {
+								yAxes: [{
+			            id : 'yLeft',
+			            position : 'left',
+									ticks: {
+										max: 140,
+										min: 0,
+										stepSize : 20,
+										fontSize : 14,
+									},
+			            gridLines: { 
+			              // grid line 설정
+			              display: false, 
+			              drawBorder: false,
+			            },
+						}
+			        ],
+					}
+			      }
+			    });
+			    let myChart2 = new Chart(ctx2, {
+			      type: 'bar',
+			      data: {
+			        labels: [
+			        	'<%=al.get(0).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(1).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(2).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(3).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(4).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(5).getRegdate().substring(5, 10) %>',
+			            '<%=al.get(6).getRegdate().substring(5, 10) %>'
+			        ],
+			        datasets: [{
+			            label: '체온',
+			            type: 'bar',
+			            data: [
+			            	<%=al.get(0).getTemp() %>,
+			            	<%=al.get(1).getTemp() %>,
+			            	<%=al.get(2).getTemp() %>,
+			            	<%=al.get(3).getTemp() %>,
+			            	<%=al.get(4).getTemp() %>,
+			            	<%=al.get(5).getTemp() %>,
+			            	<%=al.get(6).getTemp() %>
+			            ],
+			            backgroundColor: 'rgba(255, 159, 64, 1)',
+			            borderColor: 'rgba(255, 159, 64, 1)',
+			            borderWidth: 1,
+			            yAxesID : 'yRight'
+			        }]
+			      },
+			      options: {
+			        scales : {
+								yAxes: [
+			          {
+			            id : 'yRight',
+			            position : 'left',
+									ticks: {
+										max: 39,
+										min: 35,
+										stepSize : 0.5,
+										fontSize : 14,
+									},
+			            gridLines: { 
+			              // grid line 설정
+			              display: false, 
+			              drawBorder: false,
+			            },
+			          }
+			        ],
+							}
+			      }
+			    });
+				
 		}
 		
-	    let ctx1 = document.getElementById('myChart1').getContext('2d');
-	    let ctx2 = document.getElementById('myChart2').getContext('2d');
-	    
-	    let myChart1 = new Chart(ctx1, {
-	      type: 'bar',
-	      data: {
-	        labels: [
-	        	'<%=al.get(0).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(1).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(2).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(3).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(4).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(5).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(6).getRegdate().substring(5, 10) %>'
-	        ],
-	        datasets: [{
-	          label: '심박수',
-	          type: 'line',
-	          data: [
-				<%=al.get(0).getHeartrate() %>,
-				<%=al.get(1).getHeartrate() %>,
-				<%=al.get(2).getHeartrate() %>,
-				<%=al.get(3).getHeartrate() %>,
-				<%=al.get(4).getHeartrate() %>,
-				<%=al.get(5).getHeartrate() %>,
-				<%=al.get(6).getHeartrate() %>
-				],
-	          backgroundColor: 'rgba(255, 99, 132, 0)',
-	          borderColor: 'rgba(255, 99, 132, 1)',
-	          borderWidth: 3,
-	            yAxesID : 'yLeft'
-	        },{
-	            label: '산소포화도',
-	            type: 'line',
-	            data: [
-	            	<%=al.get(0).getO2() %>,
-	            	<%=al.get(1).getO2() %>,
-	            	<%=al.get(2).getO2() %>,
-	            	<%=al.get(3).getO2() %>,
-	            	<%=al.get(4).getO2() %>,
-	            	<%=al.get(5).getO2() %>,
-	            	<%=al.get(6).getO2() %>
-	            ],
-	            backgroundColor: 'rgba(54, 162, 235, 0)',
-	            borderColor: 'rgba(54, 162, 235, 1)',
-	            borderWidth: 3,
-	            yAxesID : 'yLeft'
-	          }]
-	      },
-	      options: {
-	        scales : {
-						yAxes: [{
-	            id : 'yLeft',
-	            position : 'left',
-							ticks: {
-								max: 140,
-								min: 0,
-								stepSize : 20,
-								fontSize : 14,
-							},
-	            gridLines: { 
-	              // grid line 설정
-	              display: false, 
-	              drawBorder: false,
-	            },
-				}
-	        ],
-			}
-	      }
-	    });
-	    let myChart2 = new Chart(ctx2, {
-	      type: 'bar',
-	      data: {
-	        labels: [
-	        	'<%=al.get(0).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(1).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(2).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(3).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(4).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(5).getRegdate().substring(5, 10) %>',
-	            '<%=al.get(6).getRegdate().substring(5, 10) %>'
-	        ],
-	        datasets: [{
-	            label: '체온',
-	            type: 'bar',
-	            data: [
-	            	<%=al.get(0).getTemp() %>,
-	            	<%=al.get(1).getTemp() %>,
-	            	<%=al.get(2).getTemp() %>,
-	            	<%=al.get(3).getTemp() %>,
-	            	<%=al.get(4).getTemp() %>,
-	            	<%=al.get(5).getTemp() %>,
-	            	<%=al.get(6).getTemp() %>
-	            ],
-	            backgroundColor: 'rgba(255, 159, 64, 1)',
-	            borderColor: 'rgba(255, 159, 64, 1)',
-	            borderWidth: 1,
-	            yAxesID : 'yRight'
-	        }]
-	      },
-	      options: {
-	        scales : {
-						yAxes: [
-	          {
-	            id : 'yRight',
-	            position : 'left',
-							ticks: {
-								max: 39,
-								min: 35,
-								stepSize : 0.5,
-								fontSize : 14,
-							},
-	            gridLines: { 
-	              // grid line 설정
-	              display: false, 
-	              drawBorder: false,
-	            },
-	          }
-	        ],
-					}
-	      }
-	    });
 	</script>
 
 
