@@ -84,5 +84,36 @@ public class MonitoringDAO {
 		}
 		return selectMonitoring;
 	}
+
+	public int insertMo(String hr, String o2, String temp) {
+		int cnt = 0;
+		double HR = Double.parseDouble(hr);
+		int O2 = Integer.parseInt(o2);
+		double TEMP = Double.parseDouble(temp);
+		
+		try {
+			
+		connect();
+		// 회원가입 하는 사람들은 마지막 ADMIN_YN 컬럼 무조건 'N' 관리자는 DB에서 따로 Y로 설정
+		String sql = "insert into T_MONITORING values(T_MONITORING_SEQ.nextval, wish@naver.com, ?, ?, ?, sysdate)";
+		
+		pst = conn.prepareStatement(sql);
+		pst.setDouble(1, HR);
+		pst.setInt(2, O2);
+		pst.setDouble(3, TEMP);
+		
+		cnt = pst.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+	}
 	
+	public void updateMo() {
+		
+	}
 }

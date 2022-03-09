@@ -70,13 +70,7 @@ public class CenterDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				rs.close();
-				pst.close();
-				conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return centerList;
 	}
@@ -105,13 +99,7 @@ public class CenterDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				rs.close();
-				pst.close();
-				conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return cvo;
 	}
@@ -141,13 +129,7 @@ public class CenterDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				rs.close();
-				pst.close();
-				conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return ccvo;
 	}
@@ -170,11 +152,7 @@ public class CenterDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return cnt;
 	}
@@ -197,11 +175,7 @@ public class CenterDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return cnt;
 	}
