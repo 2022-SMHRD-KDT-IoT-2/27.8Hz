@@ -86,8 +86,8 @@ public class UserDAO {
 			connect();
 			
 			String sql = "update t_user"
-					+ " set user_pw = ?, user_name = ?, user_phone = ?, user_ carnum = ?, user_addr = ?, guardian_phone = ?"
-					+ "where user_id = ?";
+					+ " set user_pw = ?, user_name = ?, user_phone = ?, user_carnum = ?, user_addr = ?, guardian_phone = ?"
+					+ " where user_id = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, user_pw);
 			pst.setString(2, user_name);
@@ -96,19 +96,13 @@ public class UserDAO {
 			pst.setString(5, user_addr);
 			pst.setString(6, guardian_phone);
 			pst.setString(7, user_id);
-
+			
 			cnt = pst.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				rs.close();
-				pst.close();
-				conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close();
 		}
 		return cnt;
 	}// end of updateInfo
