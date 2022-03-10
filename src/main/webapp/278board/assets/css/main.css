@@ -2413,3 +2413,8 @@ tbody tr td{
 #search form:before {
     content:"\f002";
 }
+
+.answer{
+	color:#897c9d;
+	font-family: 'S-CoreDream-4Regular';
+}

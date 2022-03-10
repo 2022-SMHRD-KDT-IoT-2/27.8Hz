@@ -129,7 +129,7 @@
                                     </section>
                                     <section class="main_accent2">
                                         <header class="major" style="text-align:left;">
-                                            <h2>답변</h2>
+                                            <h5 class="answer">Comment</h5>
 											<% if (ccvo == null) { %>
 												<p id="reply">관리자가 곧 답변할 예정입니다.</p>
 											<%} else { %>
