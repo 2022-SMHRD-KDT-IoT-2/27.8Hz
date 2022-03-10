@@ -162,25 +162,7 @@
             </div>
         </div>
 
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
-                <!-- Menu -->
-                <nav id="menu">
-                    <header class="major">
-                        <h2 >Menu</h2>
-                    </header>
-                    <ul>
-                        <li><a href="../main.jsp">Home</a></li>
-                        <li><a href="#">WITH U</a></li>
-                        <li><a href="#">Checks</a></li>
-                        <li><a href="#">Healthy</a></li>
-                        <li><a href="CommunityList.jsp">Community</a></li>
-                        <li><a href="CenterList.jsp">Service</a></li>
-                    </ul>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
