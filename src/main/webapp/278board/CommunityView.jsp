@@ -168,7 +168,7 @@
                                         
                                         <form id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
                                         
-                                        	<%for(int i = al.size()-1;i >= 0;i--){%>
+                                        	<%for(int i = 0;i < al.size();i++){%>
                                         	
                                         	<!--  이메일  															작성날짜 -->
 											<%=al.get(i).getUser_id()%>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=al.get(i).getComment_date()%>
