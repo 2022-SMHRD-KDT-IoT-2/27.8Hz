@@ -104,7 +104,7 @@
 
 										<div class="table-wrapper">
 											<div style="display:flex; justify-content:space-between;">
-												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">¹®ÀÇÇÏ±â</button>
+												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½</button>
 											</div>
 
 											<table>
@@ -113,11 +113,11 @@
 												</caption>
 												<thead>
 													<tr>
-														<th>¹®ÀÇ¹øÈ£</th>
-														<th>¹®ÀÇ</th>
-														<th>ÀÛ¼ºÀÚ</th>
-														<th>³¯Â¥</th>
-														<th>´äº¯ ¿©ºÎ</th>
+														<th>ï¿½ï¿½ï¿½Ç¹ï¿½È£</th>
+														<th>ï¿½ï¿½ï¿½ï¿½</th>
+														<th>ï¿½Û¼ï¿½ï¿½ï¿½</th>
+														<th>ï¿½ï¿½Â¥</th>
+														<th>ï¿½äº¯ ï¿½ï¿½ï¿½ï¿½</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -130,9 +130,9 @@
 													  		
 													  		CenterCommentVO ccvo = cdao.getReply(centerList.get(i).getQ_seq());
 													  		if (ccvo!=null) {								  			
-													  		out.print("<td>´äº¯ ¿Ï·á</td></tr>");
+													  		out.print("<td>ï¿½äº¯ ï¿½Ï·ï¿½</td></tr>");
 													  		} else {
-													  		out.print("<td>´äº¯ ´ë±âÁß</td></tr>");
+													  		out.print("<td>ï¿½äº¯ ï¿½ï¿½ï¿½ï¿½ï¿½</td></tr>");
 													  		}
 														}
 													%>
@@ -184,12 +184,12 @@
     <script>
         function send(){
             if(!$("input#boardTitle").val()){
-                alert("Á¦¸ñÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.");
+                alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
                 return;
             }
             
             if(!$("textarea[name='boardContent']").val()){
-                alert("³»¿ëÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.");
+                alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
                 return;
             }
             
