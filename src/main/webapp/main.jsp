@@ -270,8 +270,16 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-	
+    <script>
+    	document.onscroll = evt =>  {
+    		Array.from(document.getElementsByClassName('spotlight')).forEach(item => {
+    			if(window.innerHeight + window.pageYOffset > item.offsetTop ){
+    				item.classList.add("fade-in");
+    			}    				
+    		}) 		
+    	}
 
+    </script>
 
 </body>
 
