@@ -20,15 +20,24 @@ public class HealthDataCon extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		UserVO mvo = (UserVO)session.getAttribute("loginVO");
+		ArrayList<MonitoringVO> al = null;
 		
-		MonitoringDAO dao = new MonitoringDAO();
-		ArrayList<MonitoringVO> al = dao.selectMonitoring(mvo.getUser_id());
 		
-		if(al.size() < 1) {
-			response.sendRedirect("./278board/HealthDataFail.jsp");
+		if(mvo == null) {
+			//로그인하지 않고 클릭시 '로그인 후 사용하세요!' 알림 표시
+			response.sendRedirect("./278board/HealthDataLoginFail.jsp");			
 		}else {
-			response.sendRedirect("./278board/HealthData.jsp");
+			MonitoringDAO dao = new MonitoringDAO();
+			al = dao.selectMonitoring(mvo.getUser_id());		
+			
+			
+			if(al.size() < 1) {
+				//저장된 정보가 없을 시 '저장된 정보가 없습니다' 출력 
+				response.sendRedirect("./278board/HealthDataFail.jsp");
+			}else {
+				response.sendRedirect("./278board/HealthData.jsp");
+			}
 		}
 		
-	}
+	}// end of service
 }
