@@ -24,7 +24,7 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:creator" content="@https://twitter.com/ASilkalns">
         <script defer="" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0cmFja3MlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyRnJvbnQlMjBQYWdlJTIwLSUyMElsbGR5JTIwVGhlbWUlMjBEZW1vJTIyJTJDJTIydyUyMiUzQTE3OTIlMkMlMjJoJTIyJTNBMTEyMCUyQyUyMmolMjIlM0ExMDE2JTJDJTIyZSUyMiUzQTE3OTIlMkMlMjJsJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZkZW1vLmNvbG9ybGliLmNvbSUyRmlsbGR5JTJGJTIyJTJDJTIyciUyMiUzQSUyMiUyMiUyQyUyMmslMjIlM0EzMCUyQyUyMm4lMjIlM0ElMjJVVEYtOCUyMiUyQyUyMm8lMjIlM0EtNTQwJTdE"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://demo.colorlib.com/illdy/#website","url":"https://demo.colorlib.com/illdy/","name":"Illdy Theme Demo","description":"Just another colorlib.com site","potentialAction":[{"@type":"SearchAction","target":"https://demo.colorlib.com/illdy/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://demo.colorlib.com/illdy/#webpage","url":"https://demo.colorlib.com/illdy/","name":"Front Page - Illdy Theme Demo","isPartOf":{"@id":"https://demo.colorlib.com/illdy/#website"},"datePublished":"2016-09-07T10:07:33+00:00","dateModified":"2020-10-23T11:11:58+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://demo.colorlib.com/illdy/"]}]}]}</script>
-        
+        <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
         <link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
         <link rel="alternate" type="application/rss+xml" title="Illdy Theme Demo » Feed" href="https://demo.colorlib.com/illdy/feed/">
@@ -52,7 +52,7 @@
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <!--컨텐츠-->
 
-        <link rel="stylesheet" id="contact-form-7-css" href="https://demo.colorlib.com/illdy/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.5" type="text/css" media="all">
+        <link rel="stylesheet" id="contact-form-7-css" href="assets/css/" type="text/css" media="all">
         <link rel="stylesheet" id="prisna-social-counter-css" href="https://demo.colorlib.com/illdy/wp-content/plugins/social-counter/styles/prisna-social-counter.css?ver=5.9.1" type="text/css" media="all">
         <link rel="stylesheet" id="icomoon-css" href="https://demo.colorlib.com/illdy/wp-content/plugins/kiwi-social-share/assets/vendors/icomoon/style.css?ver=2.1.4" type="text/css" media="all">
         <!-- <link rel="stylesheet" id="illdy-pace-css" href="https://demo.colorlib.com/illdy/wp-content/themes/illdy/layout/css/pace.min.css?ver=5.9.1" type="text/css" media="all"> -->
@@ -78,7 +78,6 @@
         <link rel="alternate" type="application/json+oembed" href="https://demo.colorlib.com/illdy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.colorlib.com%2Filldy%2F">
         <link rel="alternate" type="text/xml+oembed" href="https://demo.colorlib.com/illdy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.colorlib.com%2Filldy%2F&amp;format=xml">
         <style type="text/css">.pace .pace-progress {background-color: #f1d204; color: #f1d204;}.pace .pace-activity {box-shadow: inset 0 0 0 2px #f1d204, inset 0 0 0 7px #ffffff;}.pace-overlay {background-color: #ffffff;}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-        <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
         <script nonce="ee89bcf4-6f40-48ab-b761-c1f7e36c005e">(function(w,d){!function(a,e,t,r,z){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zarazData.tracks=[],a.zaraz={deferred:[]};var s=e.getElementsByTagName("title")[0];s&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),a.dataLayer=a.dataLayer||[],a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.push(e),t)a.zarazData["z_"+key]=t[key]},a.zaraz._preSet=[],a.zaraz.set=(e,t,r)=>{a.zarazData["z_"+e]=t,a.zaraz._preSet.push([e,t,r])},a.dataLayer.push({"zaraz.start":(new Date).getTime()}),a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r);z.defer=!0,z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script></head>
 
 <body>
@@ -174,10 +173,7 @@
 			                                    "<a href='LogoutCon' aria-current='page' style='color: #f8ab24;'>Log Out</a></li>");
 									}
 								%>
-                        </nav>
-
-                        <button class="open-responsive-menu"><i class="fa fa-bars"></i></button>
-                        
+                        </nav>                        
                         
                     </div>
 
@@ -185,7 +181,7 @@
                 </div>
             </div>
 
-            <nav class="responsive-menu">
+            <nav id="menu" class="responsive-menu">
                 <ul>
                     <li
                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-16">
