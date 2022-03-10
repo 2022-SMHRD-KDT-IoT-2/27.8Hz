@@ -79,7 +79,14 @@
         <link rel="alternate" type="text/xml+oembed" href="https://demo.colorlib.com/illdy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.colorlib.com%2Filldy%2F&amp;format=xml">
         <style type="text/css">.pace .pace-progress {background-color: #f1d204; color: #f1d204;}.pace .pace-activity {box-shadow: inset 0 0 0 2px #f1d204, inset 0 0 0 7px #ffffff;}.pace-overlay {background-color: #ffffff;}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
         <script nonce="ee89bcf4-6f40-48ab-b761-c1f7e36c005e">(function(w,d){!function(a,e,t,r,z){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zarazData.tracks=[],a.zaraz={deferred:[]};var s=e.getElementsByTagName("title")[0];s&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),a.dataLayer=a.dataLayer||[],a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.push(e),t)a.zarazData["z_"+key]=t[key]},a.zaraz._preSet=[],a.zaraz.set=(e,t,r)=>{a.zarazData["z_"+e]=t,a.zaraz._preSet.push([e,t,r])},a.dataLayer.push({"zaraz.start":(new Date).getTime()}),a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r);z.defer=!0,z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script></head>
-
+		<style>
+		.section-description {
+			text-align: left;
+			margin-left: 100px;
+			margin-top: 2px;
+			max-width: 517.2px;
+		}		
+		</style>
 <body>
 	
 	<%
@@ -190,7 +197,7 @@
                         <h1 style="text-align: center;">NOT Drowzy<span class="span-dot" style="color: #f8ab24">,</span><br>NEVER Sleep</h1>
                     </div>
                     <div class="col-sm-8 col-sm-offset-2" >
-                        <h3 class="section-description" style="text-align: left; margin-left: 100px; margin-top: 2px"> 운전자들은 모두 도로 위에서 고독합니다. <br>도로 위의 오랜 친구인 라디오 주파수를 따 온 저희 28.8Hz는 <br>당신이 운전대를 잡고 있는 모든 순간 함께하고 싶다는 바람을 가지고 세상 밖으로 나왔습니다. <br>
+                        <h3 class="section-description" style="text-align: left; margin-left: 100px; margin-top: 2px"> 운전자들은 모두 도로 위에서 고독합니다. 도로 위의 오랜 친구인 라디오 주파수를 따 온 저희 28.8Hz는 당신이 운전대를 잡고 있는 모든 순간 함께하고 싶다는 바람을 가지고 세상 밖으로 나왔습니다.
                         이제 'WITH U'가 당신과 동행할게요.
                         </h3>
                         
