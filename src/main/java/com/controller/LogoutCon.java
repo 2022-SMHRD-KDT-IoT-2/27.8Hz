@@ -17,6 +17,7 @@ public class LogoutCon extends HttpServlet {
 				HttpSession session = request.getSession();
 				
 				session.removeAttribute("loginVO");
+				session.removeAttribute("SignUpVO");
 				
 				response.sendRedirect("main.jsp");
 				

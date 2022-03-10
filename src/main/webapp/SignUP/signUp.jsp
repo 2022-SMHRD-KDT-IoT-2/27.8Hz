@@ -1,3 +1,4 @@
+<%@page import="com.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<!-- 네이버 로그인 -->
@@ -6,11 +7,14 @@
 <%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.InputStreamReader" %>
-	
-	
+	<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
+
 	
 <!doctype html>
 <html lang="en">
+
   <head>
   	<title>Join us</title>
     <meta charset="UTF-8">
@@ -24,6 +28,29 @@
 
 	</head>
 	<body>
+	
+	<%
+    String clientId = "0TslkJsscQQ4XWJozF5D";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:8181/27.8Hz/Naver_SignUpCon", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+ %>
+ 
+ 
+ <%//네이버회원가입 버튼 클릭시 정보가 존재하지 않으면 네이버에서 이메일, 이름, 전화번호를 불러옴
+ 
+ 
+ UserVO vo = (UserVO)session.getAttribute("SignUpVO"); //세션가져옴
+
+ %>
+ 
+ 
+ 
 	<section class="ftco-section">
 		<div class="container">
 			
@@ -42,7 +69,7 @@
 			      			<div class="social-wrap">
 				      			<h3 class="mb-3 text-center">Thanks for Join us</h3>
 				      			<p class="social-media d-flex justify-content-center">
-											<a href="#" class="nvicon"><span ><img src="images/naver.png"></span></a>
+											<a href="<%=apiURL%>" class="nvicon"><span ><img src="images/naver.png"></span></a>
 											<a href="#" class="kkicon"><span ><img src="images/kakao.png"></span></a>
 										</p>
 										<p class="or">
@@ -54,7 +81,13 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="id">이메일</label>
-													<input type="text" class="form-control" name="id" id="input_id">
+													
+													<input type="text" class="form-control" name="id" id="input_id" 
+													<%if(vo!=null){ %> 
+													value="<%=vo.getUser_id()%>" 
+													<%} %> 
+													>
+													
 													<font id="checkId" size="2"></font>
 							      				</div>
 											</div>
@@ -62,7 +95,13 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="name">이름</label>
-													<input type="text" name="name" class="form-control">
+													<input type="text" name="name" class="form-control"
+													
+													<%if(vo!=null){ %> 
+													value="<%=vo.getUser_name()%>" 
+													<%} %> 
+													>
+													
 							      				</div>
 											</div>
 
@@ -90,7 +129,13 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="user_num">연락처</label>
-													<input type="text" name="phone" class="form-control" id="user_num">
+													<input type="text" name="phone" class="form-control" id="user_num"
+													
+													<%if(vo!=null){ %> 
+													value="<%=vo.getUser_phone()%>" 
+													<%} %> 
+													>
+													
 													<font id="checkTel" size="2"></font>
 												</div>
 											</div>

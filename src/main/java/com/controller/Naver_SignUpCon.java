@@ -18,12 +18,13 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+
 import com.dao.LoginDAO;
 import com.model.UserVO;
 
 
-@WebServlet("/Naver_LoginCon")
-public class Naver_LoginCon extends HttpServlet {
+@WebServlet("/Naver_SignUpCon")
+public class Naver_SignUpCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 String email = null;
@@ -136,18 +137,17 @@ public class Naver_LoginCon extends HttpServlet {
 		LoginDAO dao = new LoginDAO();
 		UserVO vo = dao.Naver_Login(email, name, mobile);
 		
-		if(vo!=null){
+		if(vo==null){//없으면 회원가입
 
-			HttpSession session = request.getSession();
-			session.setAttribute("loginVO", vo);	
-			response.sendRedirect("main.jsp"); 
-		}else { //vo=null
 			UserVO vo2 = new UserVO(email, name, mobile);
-			System.out.println(vo2.getUser_id());
-		HttpSession session = request.getSession();
-		session.setAttribute("SignUpVO", vo2);
-		response.sendRedirect("./SignUP/signUp.jsp"); 
-		// 일단은 실패하면 다시 로그인으로
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("SignUpVO", vo2);
+			response.sendRedirect("./SignUP/signUp.jsp"); 
+			
+		}else { //이미 존재하는경우 로그인으로 바로 간다.
+		response.sendRedirect("./Login/Login.jsp"); 
+		
 	}
 	  
 	  
