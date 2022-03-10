@@ -181,31 +181,7 @@
                 </div>
             </div>
 
-            <nav id="menu" class="responsive-menu">
-                <ul>
-                    <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-16">
-                        <a href="#" aria-current="page">WITH U</a>
-                    </li>
-                    <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">
-                        <a href="#" aria-current="page">My Check</a>
-                    </li>
-                    <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-18">
-                        <a href="#" aria-current="page">Healthy</a>
-                    </li>
-                    <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-19">
-                        <a href="#" aria-current="page">Community</a>
-                    </li>
-                    <li
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20">
-                        <a href="#" aria-current="page">Services</a>
-                    </li>
-                    
-                </ul>
-            </nav>
+            
         </div>
         <div class="bottom-header front-page">
             <div class="container">
