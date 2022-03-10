@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -107,4 +108,20 @@ public class UserDAO {
 		return cnt;
 	}// end of updateInfo
 	
+	public void deleteUser(String id) {
+		try {
+			connect();
+
+			String sql = "delete from T_USER where USER_ID=?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+
+			pst.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
 }// end of class

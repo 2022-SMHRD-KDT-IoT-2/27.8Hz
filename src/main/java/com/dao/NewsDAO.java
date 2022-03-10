@@ -253,6 +253,7 @@ public class NewsDAO {
 		return cnt;
 	}
 
+	// 댓글 삭제
 	public int NewCommentDelete(int num) {
 		int cnt = 0;
 
@@ -274,7 +275,30 @@ public class NewsDAO {
 		
 		return cnt;
 	}
+	
+	// id로 조회해서 댓글 삭제
+	public int NewCommentDelete2(String id) {
+		int cnt = 0;
+		
+		try {
+			conn();
 
+			String sql = "DELETE FROM T_NEWS_COMMENT WHERE USER_ID = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	//댓글 개수
 	public int NewCommentCnt(int num) {
 		int cnt = 0;
 

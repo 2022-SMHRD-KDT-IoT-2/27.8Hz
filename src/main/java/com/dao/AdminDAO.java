@@ -57,7 +57,6 @@ public class AdminDAO {
 	
 
 	//회원 목록 불러오기 
-	
 public ArrayList<UserVO> getUser_List() {
 		
 		
@@ -103,5 +102,7 @@ public ArrayList<UserVO> getUser_List() {
 		}
 		return al;
 	}
+
+
 
 }

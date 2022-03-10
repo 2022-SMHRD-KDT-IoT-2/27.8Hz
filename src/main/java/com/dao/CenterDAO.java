@@ -179,4 +179,75 @@ public class CenterDAO {
 		}
 		return cnt;
 	}
+
+	//삭제예정 회원의 질문 삭제
+	public int centerDelete(String id) {
+			int cnt = 0;
+			
+			try {
+				connect();
+				
+			String sql = "DELETE FROM T_CENTER WHERE USER_ID=?";
+			
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			
+			cnt = pst.executeUpdate();
+					
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+		return cnt;
+	}
+	
+	//삭제예정 회원의 문의 글 번호 조회
+	public ArrayList<Integer> selectIDcenter(String id) {
+		ArrayList<Integer> al = new ArrayList<>();
+		try {
+			connect();
+			
+			String sql = "select q_seq from t_center where user_id = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				int num = rs.getInt("q_seq");
+				al.add(num);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return al;
+	}
+	
+	//삭제예정 회원의 질문에 대한 답변 삭제
+	public int centerCommentDelete(int num) {
+		int cnt = 0;
+		
+		try {
+			connect();
+			
+		String sql = "DELETE FROM T_COMMENT WHERE Q_SEQ=?";
+		
+		pst = conn.prepareStatement(sql);
+		pst.setInt(1, num);
+		
+		cnt = pst.executeUpdate();
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
+
+	}
+	
 }

@@ -61,8 +61,6 @@ public class CommunityDAO {
 	
 	//========================== 커뮤니티 목록 가져오기============================
 	public ArrayList<CommunityVO> C_getList() {
-		
-		
 		ArrayList<CommunityVO> al = new ArrayList<CommunityVO>();
 		
 		try {
@@ -83,8 +81,6 @@ public class CommunityDAO {
 				String article_date = rs.getString(4);
 				int article_cnt = rs.getInt(5);
 				
-				
-				
 				CommunityVO vo = new CommunityVO(article_seq, article_title, user_id, article_date, article_cnt );
 				al.add(vo);
 			}
@@ -103,11 +99,8 @@ public class CommunityDAO {
 	}
 	
 	
-	
-	
 	// ================================글쓰기 버튼 클릭시 게시글 작성==================
 	public int boardWrite(String boardTitle, String boardContent, String userID) {
-		
 		int cnt =0;
 		
 		try {
@@ -304,8 +297,28 @@ public int CommunityDelete(int num) {
 
 }
 
-
-
+//id로 해당 회원이 쓴 글 모두 조회
+public ArrayList<Integer> selectIDCommunity (String id) {
+	ArrayList<Integer> al = new ArrayList<>();
+	
+	try {
+		conn();
+		String sql = "select article_seq from t_community where user_id = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, id);
+		
+		rs = psmt.executeQuery();
+		while (rs.next()) {
+			int num = rs.getInt("ARTICLE_SEQ");
+			al.add(num);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return al;
+}
 
 //댓글삭제
 public int CommentDelete(int num) {
@@ -314,8 +327,6 @@ public int CommentDelete(int num) {
 	
 	try {
 		conn();
-		
-
 	String sql = "delete from T_COMMENT where ARTICLE_SEQ=?";
 	
 	psmt = conn.prepareStatement(sql);
@@ -331,9 +342,47 @@ public int CommentDelete(int num) {
 		
 		close();
 	}
-
 	return cnt;
 
 }
 
+//id로 해당 회원이 쓴 댓글 모두 조회
+public ArrayList<Integer> selectIDComment(String id) {
+	ArrayList<Integer> al = new ArrayList<>();
+	try {
+		conn();
+		String sql = "select comment_seq from t_comment where user_id = ?"; 
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, id);
+		
+		rs = psmt.executeQuery();
+		
+		while (rs.next()) {
+			int num = rs.getInt("COMMENT_SEQ");
+			al.add(num);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return al;
+}
+
+//id로 해당 댓글 삭제
+public void deleteNumComment(String user_id) {
+	
+	try {
+		conn();
+		String sql = "DELETE FROM T_COMMENT WHERE user_id = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, user_id);
+		psmt.executeUpdate();
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+
+}
 }

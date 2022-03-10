@@ -23,8 +23,7 @@ public class CommunityDelete extends HttpServlet {
 		int cnt2 = dao.CommunityDelete(num);
 		
 		
-		if((cnt1+cnt2)>1) {
-			
+		if((cnt1*cnt2)>0) {
 			response.sendRedirect("./278board/CommunityList.jsp");
 		}else {
 			response.sendRedirect("./278board/CommunityList.jsp");
