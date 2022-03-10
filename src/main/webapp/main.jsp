@@ -78,7 +78,7 @@
         <link rel="alternate" type="application/json+oembed" href="https://demo.colorlib.com/illdy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.colorlib.com%2Filldy%2F">
         <link rel="alternate" type="text/xml+oembed" href="https://demo.colorlib.com/illdy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.colorlib.com%2Filldy%2F&amp;format=xml">
         <style type="text/css">.pace .pace-progress {background-color: #f1d204; color: #f1d204;}.pace .pace-activity {box-shadow: inset 0 0 0 2px #f1d204, inset 0 0 0 7px #ffffff;}.pace-overlay {background-color: #ffffff;}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-        
+        <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
         <script nonce="ee89bcf4-6f40-48ab-b761-c1f7e36c005e">(function(w,d){!function(a,e,t,r,z){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zarazData.tracks=[],a.zaraz={deferred:[]};var s=e.getElementsByTagName("title")[0];s&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),a.dataLayer=a.dataLayer||[],a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.push(e),t)a.zarazData["z_"+key]=t[key]},a.zaraz._preSet=[],a.zaraz.set=(e,t,r)=>{a.zarazData["z_"+e]=t,a.zaraz._preSet.push([e,t,r])},a.dataLayer.push({"zaraz.start":(new Date).getTime()}),a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r);z.defer=!0,z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script></head>
 
 <body>
@@ -102,14 +102,14 @@
         <div class="top-header">       
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 col-xs-8">
+                    <div class="col-sm-2 col-xs-10">
                         <a href="main.jsp" title="Illdy Theme Demo">
                             <img class="header-logo-img"
                                 src="images/logo.png"
                                 width="">
                         </a>
                     </div>
-                    <div class="col-sm-8 col-xs-4">
+                    <div class="col-sm-10 col-xs-2">
                         <nav class="header-navigation">
                             <ul id="menu-illdy-main" class="clearfix">
                                 <li id="menu-item-16"
@@ -291,6 +291,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+	
 
 
 </body>

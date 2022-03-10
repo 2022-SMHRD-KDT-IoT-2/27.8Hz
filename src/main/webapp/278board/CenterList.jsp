@@ -196,6 +196,7 @@
             document.writeForm.submit();
         }
     </script>
+    <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
 
 
 </body>
