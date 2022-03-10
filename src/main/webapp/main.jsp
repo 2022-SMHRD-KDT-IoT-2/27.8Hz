@@ -149,7 +149,7 @@
 										
 										out.print("<li id='menu-item-20'" + //로그인
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-			                                    "<a href='Login/login.html' aria-current='page' style='color: #f8ab24;'>Log In</a></li>");
+			                                    "<a href='./Login/Login.jsp' aria-current='page' style='color: #f8ab24;'>Log In</a></li>");
 											
 	                                out.print("<li id='menu-item-20'" + //회원가입 
 			                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +

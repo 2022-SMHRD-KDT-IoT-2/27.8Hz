@@ -1,0 +1,187 @@
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Login V2</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+<!-- 네이버 로그인 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<%
+    String clientId = "0TslkJsscQQ4XWJozF5D";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:8181/27.8Hz/Naver_LoginCon", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+ %>
+ 
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form action='../LoginCon' method='post' class="login100-form validate-form">
+					<h3 class="login100-form-title p-b-26" style="color: rgb(27, 54, 27);"> Welcome<br>
+						27.8Hz</h3>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is: a@b.c">
+						<input class="input100" type="text" name="email"> <span
+							class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Enter password">
+						<span class="btn-show-pass"> <i class="zmdi zmdi-eye"></i>
+						</span> <input class="input100" type="password" name="pass"> <span
+							class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+
+
+
+
+					<!-- ----------------------------------------------------------------------------------------- -->
+					<!-- ----------------------------------------------------------------------------------------- -->
+					<!-- ----------------------------------------------------------------------------------------- -->
+
+					<ul id="nkicons">
+						<li id="kakao_id_login" onclick="kakaoLogin();"><a href="javascript:void(0)">
+								<img
+						src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+						width="222" alt="카카오 로그인 버튼" /></a></li>
+						<li><a href="<%=apiURL%>"><img height="40" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a></li>
+						
+					</ul>
+					<!-- 카카오 스크립트 -->
+					<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+					<script>
+						Kakao.init('4c3aed63b12ab2792059ca71430ad441'); //발급받은 키 중 javascript키를 사용해준다.
+						console.log(Kakao.isInitialized()); // sdk초기화여부판단
+						//카카오로그인
+						function kakaoLogin() {
+						    Kakao.Auth.login({
+						      success: function (response) {
+						        Kakao.API.request({
+						          url: '/v2/user/me',
+						          success: function (response) {
+						        	  console.log(response)
+						        	  
+						        	  Kakao.Auth.authorize({
+						        		  redirectUri: 'http://localhost:8081/27.8Hz/SignUP/signUp.jsp'
+						        	  });
+						          },
+						          fail: function (error) {
+						            console.log(error)
+						          },
+						        })
+						      },
+						      fail: function (error) {
+						        console.log(error)
+						      },
+						    })
+						  }  
+						</script>
+
+					<!-- ----------------------------------------------------------------------------------------- -->
+					<!-- ----------------------------------------------------------------------------------------- -->
+					<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- 네이버 로그인 -->
+	<!-- 네이버 로그인 버튼 노출 영역 -->
+  	
+<%--   	<!-- //네이버 로그인 버튼 노출 영역 -->
+  	<script type="text/javascript">
+  		var naver_id_login = new naver_id_login("0TslkJsscQQ4XWJozF5D", "http://localhost:8181/27.8Hz/Callback.jsp");
+  		var state = naver_id_login.getUniqState();
+  		naver_id_login.setButton("white", 02,40);
+  		naver_id_login.setDomain("http://localhost:8181/27.8Hz/Callback.jsp");
+  		naver_id_login.setState(state);
+  		naver_id_login.init_naver_id_login();
+  	</script> --%>
+
+
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">Login</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1"> Don’t have an account? </span> <a class="txt2"
+							href="../SignUP/signUp.jsp"> Sign Up </a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+
+</body>
+
+</html>

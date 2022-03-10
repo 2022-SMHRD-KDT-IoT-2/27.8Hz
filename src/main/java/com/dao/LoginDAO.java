@@ -102,5 +102,58 @@ public class LoginDAO {
 }
 	
 	
+	//네이버 로그인
+	public UserVO Naver_Login(String email, String name, String mobile) {
+
+		UserVO vo =null;
+		
+		try {
+			
+			conn(); // DB 접속
+			
+			if(conn!=null) {
+				System.out.println("연결성공");
+			}
+			else {
+				System.out.println("연결실패");
+			}
+
+		String sql = "select * from t_user where user_id=? and USER_NAME=? and USER_PHONE=? ";
+		
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, email);
+		psmt.setString(2, name);
+		psmt.setString(3, mobile);
+		
+		rs = psmt.executeQuery();
+		
+
+		if(rs.next()) {
+			
+			String getEmail = rs.getString(1);
+			String getPw = rs.getString(2);
+			
+			
+			System.out.println("이메일: " + getEmail);
+			System.out.println("비밀번호: " + getPw);
+
+
+
+			vo = new UserVO(getEmail, getPw);
+		}
+
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}finally {
+			
+			close();
+
+		}
+	return vo;
+}
+	
+	
 	
 }
