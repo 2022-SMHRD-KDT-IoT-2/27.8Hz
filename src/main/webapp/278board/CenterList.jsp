@@ -4,8 +4,7 @@
 <%@page import="com.model.CenterVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CenterDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,7 +103,7 @@
 
 										<div class="table-wrapper">
 											<div style="display:flex; justify-content:space-between;">
-												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">�����ϱ�</button>
+												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">글쓰기</button>
 											</div>
 
 											<table>
@@ -113,11 +112,11 @@
 												</caption>
 												<thead>
 													<tr>
-														<th>���ǹ�ȣ</th>
-														<th>����</th>
-														<th>�ۼ���</th>
-														<th>��¥</th>
-														<th>�亯 ����</th>
+														<th>번호</th>
+														<th>제목</th>
+														<th>작성자</th>
+														<th>날짜</th>
+														<th>조회수</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -130,9 +129,9 @@
 													  		
 													  		CenterCommentVO ccvo = cdao.getReply(centerList.get(i).getQ_seq());
 													  		if (ccvo!=null) {								  			
-													  		out.print("<td>�亯 �Ϸ�</td></tr>");
+													  		out.print("<td>??</td></tr>");
 													  		} else {
-													  		out.print("<td>�亯 �����</td></tr>");
+													  		out.print("<td>?</td></tr>");
 													  		}
 														}
 													%>
@@ -184,12 +183,12 @@
     <script>
         function send(){
             if(!$("input#boardTitle").val()){
-                alert("������ �ۼ����ּ���.");
+                alert("제목을 입력해 주세요.");
                 return;
             }
             
             if(!$("textarea[name='boardContent']").val()){
-                alert("������ �ۼ����ּ���.");
+                alert("내용을 입력해 주세요.");
                 return;
             }
             

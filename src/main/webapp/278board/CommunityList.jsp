@@ -3,8 +3,8 @@
 <%@page import="com.model.CommunityVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CommunityDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -118,10 +118,10 @@
 
 										<div class="table-wrapper">
 											<div style="display:flex; justify-content:space-between;">
-												<span>°Ô½Ã¹° °³¼ö : <%=al.size() %></span>
+												<span>ê²Œì‹œë¬¼ ê°œìˆ˜ : <%=al.size() %></span>
 												<%if(vo!=null){ %>
 												<button style="border-radius:0;"
-													onclick="location.href='${pageContext.request.contextPath}/278board/CommunityWrite.jsp'">±Û¾²±â</button>
+													onclick="location.href='${pageContext.request.contextPath}/278board/CommunityWrite.jsp'">ê¸€ì“°ê¸°</button>
 												<%} %>
 											</div>
 
@@ -131,11 +131,11 @@
 												</caption>
 												<thead>
 													<tr>
-														<th>¹øÈ£</th>
-														<th>Á¦¸ñ</th>
-														<th>ÀÛ¼ºÀÚ</th>
-														<th>³¯Â¥</th>
-														<th>Á¶È¸¼ö</th>
+														<th>ë²ˆí˜¸</th>
+														<th>ì œëª©</th>
+														<th>ì‘ì„±ì</th>
+														<th>ë‚ ì§œ</th>
+														<th>ì¡°íšŒìˆ˜</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -143,13 +143,13 @@
 									<%for(int i = al.size()-1;i >= 0;i--){%>
 									
 									<tr>
-									<td><%=i+1%></td> <!-- ±Û ¹øÈ£ -->
-									<td><a href="CommunityView.jsp?num=<%=al.get(i).getArticle_seq()%>"><%=al.get(i).getArticle_title() %></a> 	<!-- °Ô½Ã¹° -->
+									<td><%=i+1%></td> <!-- ê¸€ ë²ˆí˜¸ -->
+									<td><a href="CommunityView.jsp?num=<%=al.get(i).getArticle_seq()%>"><%=al.get(i).getArticle_title() %></a> 	<!-- ê²Œì‹œë¬¼ -->
 									<%ArrayList<CommentVO> al2 = dao.getReply(al.get(i).getArticle_seq()); %>
 									[<%=al2.size()%>]</td>
-									<td><%=al.get(i).getUser_id() %></td>	<!-- ÀÛ¼ºÀÚ -->
-									<td><%=al.get(i).getArticle_date() %></td>	<!-- ÀÛ¼º³¯Â¥ -->
-									<td><%=al.get(i).getArticle_cnt() %></td>	<!-- Á¶È¸¼ö -->
+									<td><%=al.get(i).getUser_id() %></td>	<!-- ì‘ì„±ì -->
+									<td><%=al.get(i).getArticle_date() %></td>	<!-- ì‘ì„±ë‚ ì§œ -->
+									<td><%=al.get(i).getArticle_cnt() %></td>	<!-- ì¡°íšŒìˆ˜ -->
 									<%}%>
 									
 								
@@ -201,12 +201,12 @@
     <script>
         function send(){
             if(!$("input#boardTitle").val()){
-                alert("Á¦¸ñÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.");
+                alert("ì œëª©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.");
                 return;
             }
             
             if(!$("textarea[name='boardContent']").val()){
-                alert("³»¿ëÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.");
+                alert("ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.");
                 return;
             }
             
