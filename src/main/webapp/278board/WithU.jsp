@@ -1,14 +1,17 @@
+<%@page import="com.model.MonitoringVO"%>
+<%@page import="com.dao.MonitoringDAO"%>
 <%@page import="com.dao.UserDAO"%>
 <%@page import="com.model.UserVO"%>
 <%@page import="com.model.CenterCommentVO"%>
 <%@page import="com.model.CenterVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.CenterDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CenterList</title>
+    <title>Health Data Graph</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -58,17 +61,14 @@
     </style>
 </head>
 <body class="is-preload">
-
 	<%
-		CenterDAO cdao = new CenterDAO();
-		ArrayList<CenterVO> centerList = cdao.getList();
-		System.out.print(centerList.size());
+		/* UserVO mvo = (UserVO)session.getAttribute("loginVO");
 		
-		UserVO mvo = (UserVO)session.getAttribute("loginVO");
+		UserVO uvo = null;
 		if (mvo!=null) {
-		UserDAO udao = new UserDAO();
-		UserVO uvo = udao.getOneList(mvo.getUser_id());
-		}
+			UserDAO udao = new UserDAO();
+			uvo = udao.getOneList(mvo.getUser_id());
+		} */
 	%>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -77,7 +77,7 @@
             <div class="inner">
                 <!-- Header -->
                 <header id="header">
-                    <a href="CenterList.jsp" class="logo"><strong>Service Center</strong></a>
+                    <a href="CenterList.jsp" class="logo"><strong>With U</strong></a>
                     <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -95,51 +95,10 @@
 							</div>
 							<!-- Wrapper -->
 							<div class="wrapper">
-								<div class="inner">
-
-									<!-- Main -->
-									<section class="main">
-
-
-										<div class="table-wrapper">
-											<div style="display:flex; justify-content:space-between;">
-												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">문의하기</button>
-											</div>
-
-											<table>
-												<caption style="text-align:left; margin-bottom:3%;">
-
-												</caption>
-												<thead>
-													<tr>
-														<th>문의 번호</th>
-														<th>문의</th>
-														<th>작성자</th>
-														<th>날짜</th>
-														<th>답변 여부</th>
-													</tr>
-												</thead>
-												<tbody>
-													<%
-														for (int i=0; i<centerList.size(); i++) {
-															out.print("<tr><td>" + Math.abs(i-centerList.size()) + "</td>");
-													  		out.print("<td><a href='CenterView.jsp?num=" + centerList.get(i).getQ_seq()+ "'>" + centerList.get(i).getQ_title() + "</a></td>");
-													  		out.print("<td>" + centerList.get(i).getUser_id() + "</td>");
-													  		out.print("<td>" + centerList.get(i).getQ_date() + "</td>");
-													  		
-													  		CenterCommentVO ccvo = cdao.getReply(centerList.get(i).getQ_seq());
-													  		if (ccvo!=null) {								  			
-													  		out.print("<td>답변 완료</td></tr>");
-													  		} else {
-													  		out.print("<td>답변 대기중</td></tr>");
-													  		}
-														}
-													%>
-												</tbody>
-											</table>
-										</div>
-									</section>
-
+								<div class="inner" style="text-align: center;">
+								<img src="../images/withU_page.png">
+								<button style="line-height: 1.5em;display: block;margin: 0 auto;font-size: 1.5em;margin-top: 30px;
+								">�����ϱ�</button>
 								</div>
 							</div>
 						</div>
@@ -153,7 +112,7 @@
         </div>
 
         <!-- Sidebar -->
-        <div id="sidebar">
+        <div id="sidebar" >
             <div class="inner">
                 <!-- Menu -->
                 <nav id="menu">
@@ -162,7 +121,7 @@
                     </header>
                     <ul class="sidemenu">
 						<li><a href="../main.jsp">Home</a></li>
-						<li ><a href="../WithU.jsp">WITH U</a></li>
+						<li ><a href="#">WITH U</a></li>
 						<li><a href="../HealthDataCon">Checks</a></li>
 						<li><a href="NewsList.jsp">Healthy</a></li>
 						<li><a href="CommunityList.jsp">Community</a></li>
@@ -180,8 +139,5 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
-
-
 </body>
 </html>

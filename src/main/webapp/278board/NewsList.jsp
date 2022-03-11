@@ -160,7 +160,7 @@ textarea {
 					</header>
 					<ul class="sidemenu">
 						<li><a href="../main.jsp">Home</a></li>
-						<li><a href="#">WITH U</a></li>
+						<li><a href="../WithU.jsp">WITH U</a></li>
 						<li><a href="../HealthDataCon">Checks</a></li>
 						<li><a href="NewsList.jsp">Healthy</a></li>
 						<li><a href="CommunityList.jsp">Community</a></li>
