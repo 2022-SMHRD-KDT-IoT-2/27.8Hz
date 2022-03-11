@@ -103,7 +103,7 @@
 
 										<div class="table-wrapper">
 											<div style="display:flex; justify-content:space-between;">
-												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">글쓰기</button>
+												<button style="border-radius:0;" onclick="location.href='${pageContext.request.contextPath}/278board/CenterWrite.jsp'">문의하기</button>
 											</div>
 
 											<table>
@@ -112,26 +112,26 @@
 												</caption>
 												<thead>
 													<tr>
-														<th>번호</th>
-														<th>제목</th>
+														<th>문의 번호</th>
+														<th>문의</th>
 														<th>작성자</th>
 														<th>날짜</th>
-														<th>조회수</th>
+														<th>답변 여부</th>
 													</tr>
 												</thead>
 												<tbody>
 													<%
 														for (int i=0; i<centerList.size(); i++) {
-															out.print("<tr><td>" + centerList.get(i).getQ_seq() + "</td>");
+															out.print("<tr><td>" + Math.abs(i-centerList.size()) + "</td>");
 													  		out.print("<td><a href='CenterView.jsp?num=" + centerList.get(i).getQ_seq()+ "'>" + centerList.get(i).getQ_title() + "</a></td>");
 													  		out.print("<td>" + centerList.get(i).getUser_id() + "</td>");
 													  		out.print("<td>" + centerList.get(i).getQ_date() + "</td>");
 													  		
 													  		CenterCommentVO ccvo = cdao.getReply(centerList.get(i).getQ_seq());
 													  		if (ccvo!=null) {								  			
-													  		out.print("<td>??</td></tr>");
+													  		out.print("<td>답변 완료</td></tr>");
 													  		} else {
-													  		out.print("<td>?</td></tr>");
+													  		out.print("<td>답변 대기중</td></tr>");
 													  		}
 														}
 													%>
@@ -180,21 +180,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        function send(){
-            if(!$("input#boardTitle").val()){
-                alert("제목을 입력해 주세요.");
-                return;
-            }
-            
-            if(!$("textarea[name='boardContent']").val()){
-                alert("내용을 입력해 주세요.");
-                return;
-            }
-            
-            document.writeForm.submit();
-        }
-    </script>
     <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
 
 
