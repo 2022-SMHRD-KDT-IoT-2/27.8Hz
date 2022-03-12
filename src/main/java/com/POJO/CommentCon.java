@@ -20,21 +20,21 @@ public class CommentCon implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		request.setCharacterEncoding("UTF-8");
+		
 		// TODO Auto-generated method stub
-		StringBuffer sb = new StringBuffer(); // ?½?–´?˜¨ ?°?´?„° ???¥
-		String line = null; // ë²„í¼?•ˆ?˜ ?°?´?„° ?½?„?•Œ ?‚¬?š©(?„?‹œ???¥)
+		StringBuffer sb = new StringBuffer(); // ÀĞ¾î¿Â µ¥ÀÌÅÍ ÀúÀå
+		String line = null;  // ¹öÆÛ¾ÈÀÇ µ¥ÀÌÅÍ ÀĞÀ»¶§ »ç¿ë(ÀÓ½ÃÀúÀå)
 
-		BufferedReader reader = request.getReader(); // ?š”ì²??°?´?„° ?½?„?•Œ ?‚¬?š©
-		while ((line = reader.readLine()) != null) { // ?½?„ ?°?´?„°ê°? ?ˆ?„?•Œ ë°˜ë³µ ?ˆ˜?–‰
-			sb.append(line); // ?½?–´?˜¨?°?´?„°ë¥? sb(stringbuffer) ?— ì¶”ê?
+		BufferedReader reader = request.getReader(); // ¿äÃ»µ¥ÀÌÅÍ ÀĞÀ»¶§ »ç¿ë
+		while ((line = reader.readLine()) != null) { // ÀĞÀ» µ¥ÀÌÅÍ°¡ ÀÖÀ»¶§ ¹İº¹ ¼öÇà
+			sb.append(line); // ÀĞ¾î¿Âµ¥ÀÌÅÍ¸¦ sb(stringbuffer) ¿¡ Ãß°¡
 		}
 
-		JsonParser parser = new JsonParser(); // ?ŒŒ?‹±(ë¬¸ì?—´ -> JSON)
-		JsonElement element = parser.parse(sb.toString()); // ë²„í¼?°?´?„° ë¬¸ì?—´ë¡? ë³?ê²½í›„ JSON?œ¼ë¡? ë³?ê²?
+		JsonParser parser = new JsonParser(); // ÆÄ½Ì(¹®ÀÚ¿­ -> JSON)
+		JsonElement element = parser.parse(sb.toString()); // ¹öÆÛµ¥ÀÌÅÍ ¹®ÀÚ¿­·Î º¯°æÈÄ JSONÀ¸·Î º¯°æ
 
-		int boardnum = element.getAsJsonObject().get("boardnum").getAsInt(); // ?‚¤ê°’ì´ boardnum?¸ ?°?´?„°
-		String reply = element.getAsJsonObject().get("reply").getAsString(); // ?‚¤ê°’ì´ reply?¸ ?°?´?„°
+		int boardnum = element.getAsJsonObject().get("boardnum").getAsInt(); // Å°°ªÀÌ boardnumÀÎ µ¥ÀÌÅÍ
+		String reply = element.getAsJsonObject().get("reply").getAsString(); // Å°°ªÀÌ replyÀÎ µ¥ÀÌÅÍ
 
 		System.out.println("ë²ˆí˜¸ : " + boardnum);
 		System.out.println("?Œ“ê¸? : " + reply);
@@ -42,8 +42,9 @@ public class CommentCon implements Command{
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("loginVO");
 		
-		// ë¡œê·¸?¸ ê°??Š¥?•  ê²½ìš° ì½˜ì†”ì°½ì— : ë¡œê·¸?¸?„±ê³? ì¶œë ¥ (?˜?´ì§??´?™X)
-		// ë¡œê·¸?¸ ë¶ˆê??Š¥?•  ê²½ìš° ì½˜ì†”ì°½ì— : ë¡œê·¸?¸?‹¤?Œ¨ ì¶œë ¥ (?˜?´ì§??´?™X)
+		// ·Î±×ÀÎ °¡´ÉÇÒ °æ¿ì ÄÜ¼ÖÃ¢¿¡ : ·Î±×ÀÎ¼º°ø Ãâ·Â (ÆäÀÌÁöÀÌµ¿X)
+		// ·Î±×ÀÎ ºÒ°¡´ÉÇÒ °æ¿ì ÄÜ¼ÖÃ¢¿¡ : ·Î±×ÀÎ½ÇÆĞ Ãâ·Â (ÆäÀÌÁöÀÌµ¿X)
+		
 		Connection conn = null;
 		PreparedStatement psmt = null;
 
@@ -66,10 +67,10 @@ public class CommentCon implements Command{
 			PrintWriter out = response.getWriter();
 
 			if (cnt > 0) {
-				// "success" ?‘?‹µ
+				// "success" ÀÀ´ä
 				out.print("success");
 			} else {
-				// "fail" ?‘?‹µ
+				// "fail" ÀÀ´ä
 				out.print("fail");
 			}
 

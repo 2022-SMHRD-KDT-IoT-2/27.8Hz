@@ -29,8 +29,8 @@ public class Naver_LoginCon implements Command{
 		 String name = null;
 		 String mobile =null;
 		 
-	    String clientId = "0TslkJsscQQ4XWJozF5D";//?븷?뵆由ъ??씠?뀡 ?겢?씪?씠?뼵?듃 ?븘?씠?뵒媛?";
-	    String clientSecret = "4s2KfD_bKb";//?븷?뵆由ъ??씠?뀡 ?겢?씪?씠?뼵?듃 ?떆?겕由욧컪";
+	    String clientId = "0TslkJsscQQ4XWJozF5D";//애플리케이션 클라이언트 아이디값";
+	    String clientSecret = "4s2KfD_bKb";//애플리케이션 클라이언트 시크릿값";
 	    String code = request.getParameter("code");
 	    String state = request.getParameter("state");
 	    String redirectURI = URLEncoder.encode("http://localhost:8080/27.8Hz/main.jsp", "UTF-8");
@@ -51,9 +51,9 @@ public class Naver_LoginCon implements Command{
 	      int responseCode = con.getResponseCode();
 	      BufferedReader br;
 	      System.out.print("responseCode="+responseCode);
-	      if(responseCode==200) { // ?젙?긽 ?샇異?
+	      if(responseCode==200) { // 정상 호출
 	        br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-	      } else {  // ?뿉?윭 諛쒖깮
+	      } else { // 에러 발생
 	        br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 	      }
 	      String inputLine;
@@ -78,9 +78,9 @@ public class Naver_LoginCon implements Command{
 	    } catch (Exception e) {
 	      System.out.println(e);
 	    }
-	    String header = "Bearer " + access_token; // Bearer ?떎?쓬?뿉 怨듬갚 異붽?
+	    String header = "Bearer " + access_token; // Bearer 다음에 공백 추가
 	    
-	    if(access_token != null) { // access_token?쓣 ?옒 諛쏆븘?솕?떎硫?
+	    if(access_token != null) { // access_token을 잘 받아왔다면
 	    	try {
 	    		 String apiurl = "https://openapi.naver.com/v1/nid/me";
 	    		 URL url = new URL(apiurl);
@@ -89,9 +89,9 @@ public class Naver_LoginCon implements Command{
 	    		con.setRequestProperty("Authorization", header);
 	    		int responseCode = con.getResponseCode();
 	    		BufferedReader br;
-	    		if(responseCode==200) { // ?젙?긽 ?샇異?
+	    		if(responseCode==200) { // 정상 호출
 	    		 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-	    		} else {  // ?뿉?윭 諛쒖깮
+	    		} else {  // 에러 발생
 	    		br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 	    		}
 	    		String inputLine;
@@ -105,17 +105,17 @@ public class Naver_LoginCon implements Command{
 	    		 JSONObject jsonObj = (JSONObject)obj;
 	    		 JSONObject resObj = (JSONObject)jsonObj.get("response");
 	    		  
-	    		 //?쇊履? 蹂??닔 ?씠由꾩? ?썝?븯?뒗 ??濡? ?젙?븯硫? ?맂?떎. 
-	    		 //?떒, ?슦痢≪쓽 get()?븞?뿉 ?뱾?뼱媛??뒗 媛믪? ???씤?깋 ?긽?옄 ?븞?쓽 媛믪쓣 洹몃?濡? ?쟻?뼱二쇱뼱?빞 ?븳?떎.
+	    		//왼쪽 변수 이름은 원하는 대로 정하면 된다. 
+	    		//단, 우측의 get()안에 들어가는 값은 와인색 상자 안의 값을 그대로 적어주어야 한다.
 	    		
 	    		  email = (String)resObj.get("email");
 	    		  name = (String)resObj.get("name");
 	    		  mobile = (String)resObj.get("mobile");
 	    		  
 	    		 System.out.println();
-	    		 System.out.println("?꽕?씠踰꾩뿉 ?벑濡앸맂 ?씠硫붿씪: " + email);
-	    		 System.out.println("?꽕?씠踰꾩뿉 ?벑濡앸맂 ?씠由?: " +name);
-	    		 System.out.println("?꽕?씠踰꾩뿉 ?벑濡앸맂 ?뿰?씫泥?: " +mobile);
+	    		 System.out.println("네이버에 등록된 이메일: " + email);
+	    		 System.out.println("네이버에 등록된 이름: " +name);
+	    		 System.out.println("네이버에 등록된 연락처: " +mobile);
 	    		br.close();
 	        } catch (Exception e) {
 	        	e.printStackTrace();
@@ -147,7 +147,7 @@ public class Naver_LoginCon implements Command{
 		HttpSession session = request.getSession();
 		session.setAttribute("SignUpVO", vo2);
 		url="./SignUP/signUp.jsp"; 
-		// ?씪?떒?? ?떎?뙣?븯硫? ?떎?떆 濡쒓렇?씤?쑝濡?
+		// 일단은 실패하면 다시 로그인으로
 	}
 		
 		return url;

@@ -49,11 +49,11 @@ public class FrontController extends HttpServlet {
 		
 		
 		String reqURI = request.getRequestURI();
-		System.out.println("��û URI : " + reqURI);
+		System.out.println("요청 URI :" + reqURI);
 
 	
 		String path = request.getContextPath();
-		System.out.println("������Ʈ �� : " + path);
+		System.out.println("프로젝트 명 : " + path);
 
 
 		String result = reqURI.substring(path.length() + 1);

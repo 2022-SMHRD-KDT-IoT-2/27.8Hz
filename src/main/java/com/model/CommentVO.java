@@ -2,12 +2,12 @@ package com.model;
 
 public class CommentVO {
 	
-	private	int comment_seq;	//
-	private	String article_seq; // 
+	private	int comment_seq;	// 댓글번호
+	private	String article_seq; // 	기사번호
 	private	String comment_con; // 
-	private String comment_date; // 
-	private String user_id; // 
-	private  String comment_likes; // 
+	private String comment_date; // 댓글작성날짜
+	private String user_id; // 유저아이디
+	private  String comment_likes; // 좋아요수
 	
 	
 	public CommentVO(String comment_con, String user_id, String getDate) {
