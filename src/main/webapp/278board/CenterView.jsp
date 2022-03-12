@@ -179,7 +179,7 @@
     	let xhr = new XMLHttpRequest();
     	
     	//요청방식, 요청경로
-    	xhr.open('post', '../CenterComment');
+    	xhr.open('post', '../CenterComment.do');
     	//전송 데이터의 형식
     	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     	//요청 & 전송할 데이터
@@ -213,7 +213,7 @@
     	let xhr = new XMLHttpRequest();
     	
     	//요청방식, 요청경로
-    	xhr.open('post', '../DeleteCCCon');
+    	xhr.open('post', '../DeleteCCCon.do');
     	//전송 데이터의 형식
     	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     	//요청 & 전송할 데이터

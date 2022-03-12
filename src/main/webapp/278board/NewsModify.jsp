@@ -106,7 +106,7 @@
                                                 <li><input type="button" value="¸ñ·Ï" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/NewsList.jsp'"/></li>
                                             </ul>
                                         </div>
-                                        <form action="${pageContext.request.contextPath}/NewsModifyCon?num=<%=num%>" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
+                                        <form action="${pageContext.request.contextPath}/NewsModifyCon.do?num=<%=num%>" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
                                             <header class="major">			
                                                 <p>
                                                     <input id="boardTitle" name="boardTitle" type="text" value="<%=vo.getNews_title()%>">

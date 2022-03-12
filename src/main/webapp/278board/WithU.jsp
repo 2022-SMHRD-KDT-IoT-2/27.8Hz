@@ -77,7 +77,7 @@
             <div class="inner">
                 <!-- Header -->
                 <header id="header">
-                    <a href="CenterList.jsp" class="logo"><strong>With U</strong></a>
+                    <a href="WithU.jsp" class="logo"><strong>With U</strong></a>
                     <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -121,7 +121,7 @@
                     </header>
                     <ul class="sidemenu">
 						<li><a href="../main.jsp">Home</a></li>
-						<li ><a href="#">WITH U</a></li>
+						<li ><a href="WithU.jsp">WITH U</a></li>
 						<li><a href="../HealthDataCon">Checks</a></li>
 						<li><a href="NewsList.jsp">Healthy</a></li>
 						<li><a href="CommunityList.jsp">Community</a></li>

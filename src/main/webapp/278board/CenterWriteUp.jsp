@@ -102,7 +102,7 @@
 												<li><input type="button" value="¸ñ·Ï" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CenterList.jsp'" /></li>
 											</ul>
                                         </div>
-                                        <form action="../CenterWriteUpCon" id="writeForm" name="writeForm"  method="post" enctype="application/x-www-form-urlencoded">
+                                        <form action="../CenterWriteUpCon.do" id="writeForm" name="writeForm"  method="post" enctype="application/x-www-form-urlencoded">
 											<header class="major">
 												<p>
 													<input id="num" name="num" type="hidden" value="<%=num %>">

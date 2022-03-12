@@ -177,7 +177,7 @@
 										
 										out.print("<li id='menu-item-20'" +// 로그 아웃
 					                            "class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20'>" +
-			                                    "<a href='LogoutCon' aria-current='page' style='color: #f8ab24;'>Log Out</a></li>");
+			                                    "<a href='LogoutCon.do' aria-current='page' style='color: #f8ab24;'>Log Out</a></li>");
 									}
 								%>
                         </nav>                        
@@ -202,7 +202,7 @@
                         </h3>
                     </div>
                 </div>
-                    <a href="https://colorlib.com/wp/themes/illdy/" title="Learn more"
+                    <a href="./278board/WithU.jsp" title="Learn more"
                                 class="header-button-one" style="align-items:left">더 알아보기
                     </a>
             </div>

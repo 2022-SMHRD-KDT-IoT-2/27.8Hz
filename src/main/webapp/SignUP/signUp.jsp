@@ -76,7 +76,7 @@
 				          		<span>or</span>
 				          	</p>
 			          	</div>
-									<form action="../SignUpCon" class="signup-form">
+									<form action="../SignUpCon.do" class="signup-form" name="writeForm">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
@@ -95,7 +95,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="name">이름</label>
-													<input type="text" name="name" class="form-control"
+													<input type="text" name="name" class="form-control" id="input_name" 
 													
 													<%if(vo!=null){ %> 
 													value="<%=vo.getUser_name()%>" 
@@ -108,28 +108,28 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="password">비밀번호</label>
-													<input type="password" name="pw" class="form-control">
+													<input type="password" name="pw" class="form-control" id="input_pw">
 												</div>
 											</div>
 									
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="address">주소</label>
-													<input type="text" name="addr" class="form-control">
+													<input type="text" name="addr" class="form-control" id="input_addr">
 							      				</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="carnumber">차량번호</label>
-													<input type="text" name="carNum" class="form-control">
+													<input type="text" name="carNum" class="form-control" id="input_cnum">
 												</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="user_num">연락처</label>
-													<input type="text" name="phone" class="form-control" id="user_num"
+													<input type="text" name="phone" class="form-control" id="input_phone"
 													
 													<%if(vo!=null){ %> 
 													value="<%=vo.getUser_phone()%>" 
@@ -143,7 +143,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="pro_num">보호자 연락처</label>
-													<input type="text" name="gNum" class="form-control">
+													<input type="text" name="gNum" class="form-control" id="input_gphone">
 												</div>
 											</div>
 
@@ -160,7 +160,7 @@
 
 											<div class="col-md-12">
 												<div class="form-group">
-												<button type="submit" class="btn btn-primary submit p-3">Create an account</button>
+												<button type="button" class="btn btn-primary submit p-3" onclick="send()">Create an account</button>
 												</div>
 											</div>
 										</div>
@@ -208,6 +208,51 @@
   
   <script> 
   
+
+  function send(){
+      if(!$("input#input_id").val()){
+          alert("이메일을 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_name").val()){
+          alert("이름을 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_pw").val()){
+          alert("비밀번호를 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_addr").val()){
+          alert("주소를 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_cnum").val()){
+          alert("차량번호를 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_phone").val()){
+          alert("연락처를 입력해 주세요.");
+          
+      }
+      
+      else if(!$("input#input_gphone").val()){
+          alert("보호자 연락처를 입력해 주세요.");
+          
+      }
+      else{
+      document.writeForm.submit();
+      }
+      
+     
+  }
+
+  
+  
 //이메일 정규식 체크
   function CheckEmail(str){                                                 
      var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -244,7 +289,7 @@
   		
   		}else{
   		$.ajax({
-  				url : '../SignUpCheckCon',
+  				url : '../SignUpCheckCon.do',
   				type : 'post',
   				data : {userId : userId},
   				dataType : 'json',
@@ -284,7 +329,7 @@
   	  		}
   			 else{
   		$.ajax({
-  				url : '../UnumCheckCon',
+  				url : '../UnumCheckCon.do',
   				type : 'post',
   				data : {userNum : userNum},
   				dataType : 'json',

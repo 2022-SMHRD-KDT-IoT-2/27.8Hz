@@ -176,7 +176,7 @@ public class NewsDAO {
 		try {
 			conn();
 
-			String sql = "SELECT NC_CONTENT, USER_ID, NC_DATE, NC_SEQ FROM T_NEWS_COMMENT WHERE NEWS_SEQ = ? order by nc_seq desc";
+			String sql = "SELECT NC_CONTENT, USER_ID, NC_DATE, NC_SEQ FROM T_NEWS_COMMENT WHERE NEWS_SEQ = ? order by nc_seq";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);

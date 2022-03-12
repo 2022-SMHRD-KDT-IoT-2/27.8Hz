@@ -133,7 +133,7 @@
                                                 <%if(vo2!=null){ %>
                                                <%if(vo.getUser_id().equals(vo2.getUser_id()) ){ %>
                                                <li><input type="button" value="수정" onclick="location.href='CommunityModify.jsp?num=<%=num%>'"/></li>
-                                               <li><input type="button" value="삭제" onclick="location.href='../CommunityDelete?num=<%=num%>'"/></li>   
+                                               <li><input type="button" value="삭제" onclick="location.href='../CommunityDelete.do?num=<%=num%>'"/></li>   
                                                <%} }%>
                                                <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CommunityList.jsp'"/></li> 
                                                 
@@ -221,7 +221,7 @@
         let xhr = new XMLHttpRequest()
         
         //요청방식 , 요청경로
-        xhr.open('post', '../CommentCon')
+        xhr.open('post', '../CommentCon.do')
         
         //전송데이터의 형식
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
@@ -258,7 +258,7 @@
     	let xhr = new XMLHttpRequest();
     	
     	//요청방식, 요청경로
-    	xhr.open('post', '../CommentDeleteCon');
+    	xhr.open('post', '../CommentDeleteCon.do');
     	//전송 데이터의 형식
     	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     	//요청 & 전송할 데이터

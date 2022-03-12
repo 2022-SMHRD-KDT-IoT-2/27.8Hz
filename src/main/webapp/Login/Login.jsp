@@ -46,7 +46,7 @@
 <body>
 <%
     String clientId = "0TslkJsscQQ4XWJozF5D";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://localhost:8181/27.8Hz/Naver_LoginCon", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://localhost:8181/27.8Hz/Naver_LoginCon.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -60,7 +60,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action='../LoginCon' method='post' class="login100-form validate-form">
+				<form action='../LoginCon.do' method='post' class="login100-form validate-form">
 					<h3 class="login100-form-title p-b-26" style="color: rgb(27, 54, 27);"> Welcome<br>
 						27.8Hz</h3>
 

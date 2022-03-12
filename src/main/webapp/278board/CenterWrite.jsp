@@ -104,7 +104,7 @@
                                             </ul>
                                         </div>
                                         <form
-											action="../CenterWriteCon" id="writeForm" 
+											action="../CenterWriteCon.do" id="writeForm" 
 											name="writeForm"  method="post" enctype="application/x-www-form-urlencoded">
 											<header class="major">
 												<p>

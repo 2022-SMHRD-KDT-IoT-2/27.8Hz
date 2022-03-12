@@ -96,7 +96,7 @@
                                                 <li><input type="button" value="목록" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CommunityList.jsp'"/></li>
                                             </ul>
                                         </div>
-                                        <form action="${pageContext.request.contextPath}/CommunityWriteCon" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
+                                        <form action="${pageContext.request.contextPath}/CommunityWriteCon.do" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
                                             <header class="major">
                                                 <p>
                                                     <input id="boardTitle" name="boardTitle" type="text" placeholder="제목 입력">

@@ -102,7 +102,7 @@ textarea {
 													onclick="location.href='${pageContext.request.contextPath}/278board/NewsList.jsp'" /></li>
 											</ul>
 										</div>
-										<form action="../NewsWriteCon" id="writeForm" name="writeForm" method="post">
+										<form action="../NewsWriteCon.do" id="writeForm" name="writeForm" method="post">
 											<header class="major">
 												<p>
 													<input id="NewsTitle" name="NewsTitle" type="text"

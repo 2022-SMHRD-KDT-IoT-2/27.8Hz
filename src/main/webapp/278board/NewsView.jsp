@@ -115,7 +115,7 @@ textarea {
 												<li><input id="update" type="button" value="수정"
 													onclick="location.href='${pageContext.request.contextPath}/278board/NewsModify.jsp?num=<%=num%>'" /></li>
 												<li><input type="button" value="삭제"
-													onclick="location.href='../NewsDeleteCon?num=<%=num%>'" /></li>
+													onclick="location.href='../NewsDeleteCon.do?num=<%=num%>'" /></li>
 												<%
 												}
 												%>
@@ -211,7 +211,7 @@ textarea {
 			let xhr = new XMLHttpRequest();
 
 			//요청방식, 요청경로
-			xhr.open('post', '../NewsCommentCon');
+			xhr.open('post', '../NewsCommentCon.do');
 
 			//전송 데이터의 형식
 			xhr.setRequestHeader('Content-Type',
@@ -245,7 +245,7 @@ textarea {
 			let xhr = new XMLHttpRequest();
 
 			//요청방식, 요청경로
-			xhr.open('post', '../NewsCommentDeleteCon');
+			xhr.open('post', '../NewsCommentDeleteCon.do');
 			//전송 데이터의 형식
 			xhr.setRequestHeader('Content-Type',
 					'application/json;charset=UTF-8');

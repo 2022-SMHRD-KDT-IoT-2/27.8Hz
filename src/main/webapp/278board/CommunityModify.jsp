@@ -110,7 +110,7 @@
                                                 <li><input type="button" value="¸ñ·Ï" class="primary" onclick="location.href='${pageContext.request.contextPath}/278board/CommunityList.jsp'"/></li>
                                             </ul>
                                         </div>
-                                        <form action="${pageContext.request.contextPath}/CommunityModifyCon?num=<%=num%>" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
+                                        <form action="${pageContext.request.contextPath}/CommunityModifyCon.do?num=<%=num%>" name="writeForm" method="post" enctype="application/x-www-form-urlencoded">
                                             <header class="major">			
                                                 <p>
                                                     <input id="boardTitle" name="boardTitle" type="text" value="<%=vo.getArticle_title()%>">
