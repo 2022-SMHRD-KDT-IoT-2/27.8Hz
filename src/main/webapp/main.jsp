@@ -120,7 +120,7 @@
                             <ul id="menu-illdy-main" class="clearfix">
                                 <li id="menu-item-16"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-16">
-                                    <a href="WithU.jsp" aria-current="page">WITH U</a>
+                                    <a href="./278board/WithU.jsp" aria-current="page">WITH U</a>
                                 </li>
                                 <li id="menu-item-17"
                                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">

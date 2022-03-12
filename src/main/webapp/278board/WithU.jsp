@@ -139,5 +139,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/70d105e515.js" crossorigin="anonymous"></script>
 </body>
 </html>
