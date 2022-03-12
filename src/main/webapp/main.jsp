@@ -200,10 +200,7 @@
                         <h3 class="section-description" style="text-align: left; margin-left: 100px; margin-top: 2px"> 운전자들은 모두 도로 위에서 고독합니다. 도로 위의 오랜 친구인 라디오 주파수를 따 온 저희 28.8Hz는 당신이 운전대를 잡고 있는 모든 순간 함께하고 싶다는 바람을 가지고 세상 밖으로 나왔습니다.
                         이제 'WITH U'가 당신과 동행할게요.
                         </h3>
-                        
                     </div>
-
-                    
                 </div>
                     <a href="https://colorlib.com/wp/themes/illdy/" title="Learn more"
                                 class="header-button-one" style="align-items:left">더 알아보기
