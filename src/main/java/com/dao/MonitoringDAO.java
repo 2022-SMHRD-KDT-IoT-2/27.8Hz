@@ -86,15 +86,17 @@ public class MonitoringDAO {
 		double HR = Double.parseDouble(hr);
 		int O2 = Integer.parseInt(o2);
 		double TEMP = Double.parseDouble(temp);
+		String id = "wish@naver.com";
 		
 		try {
 		connect();
-		String sql = "insert into T_MONITORING values(T_MONITORING_SEQ.nextval, wish@naver.com, ?, ?, ?, sysdate)";
+		String sql = "insert into T_MONITORING values(T_MONITORING_SEQ.nextval, ?, ?, ?, ?, sysdate)";
 		
 		pst = conn.prepareStatement(sql);
-		pst.setDouble(1, HR);
-		pst.setInt(2, O2);
-		pst.setDouble(3, TEMP);
+		pst.setString(1, id);
+		pst.setDouble(2, HR);
+		pst.setInt(3, O2);
+		pst.setDouble(4, TEMP);
 		
 		cnt = pst.executeUpdate();
 
@@ -111,14 +113,16 @@ public class MonitoringDAO {
 		double HR = Double.parseDouble(hr);
 		int O2 = Integer.parseInt(o2);
 		double TEMP = Double.parseDouble(temp);
+		String id = "wish@naver.com";
 
 		try {
 			connect();
-			String sql = "update T_MONITORING set HEART_RATE = ?, O2_SATURATION = ?, TEMPERATURE =? where DRIVER_ID = wish@naver.com";
+			String sql = "update T_MONITORING set HEART_RATE = ?, O2_SATURATION = ?, TEMPERATURE =? where DRIVER_ID = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setDouble(1, HR);
 			pst.setInt(2, O2);
 			pst.setDouble(3, TEMP);
+			pst.setString(4, id);
 			cnt = pst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,13 +139,15 @@ public class MonitoringDAO {
 		//현재 날짜 문자열로 변환
 		String date = now.toString();
 		boolean tf = false;
+		String id = "wish@naver.com";
 		
 		try {
 			connect();
-			String sql = "SELECT * FROM T_MONITORING WHERE TO_CHAR(REG_DATE,'yyyy-mm-dd') = ? AND DRIVER_ID = wish@naver.com";
+			String sql = "SELECT * FROM T_MONITORING WHERE TO_CHAR(REG_DATE,'yyyy-mm-dd') = ? AND DRIVER_ID = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, date);
-
+			pst.setString(2, id);
+			
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				tf = true;
