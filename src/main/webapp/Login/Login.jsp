@@ -46,7 +46,7 @@
 <body>
 <%
     String clientId = "0TslkJsscQQ4XWJozF5D";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://localhost:8181/27.8Hz/Naver_LoginCon.do", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://211.227.224.169:8081/27.8Hz/Naver_LoginCon.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
