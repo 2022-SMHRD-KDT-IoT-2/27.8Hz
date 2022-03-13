@@ -58,17 +58,26 @@
                   font-weight: 600;
                   letter-spacing: 0.1em;
         }
+        tr{
+        	height: 100px;
+        }
+        td{
+        	vertical-align: middle;
+        }
+        label{
+        	margin-top: 21px !important;
+        }
     </style>
 </head>
 <body class="is-preload">
-	<%
-		/* UserVO mvo = (UserVO)session.getAttribute("loginVO");
+	<%	
+		 UserVO mvo = (UserVO)session.getAttribute("loginVO");
 		
 		UserVO uvo = null;
 		if (mvo!=null) {
 			UserDAO udao = new UserDAO();
 			uvo = udao.getOneList(mvo.getUser_id());
-		} */
+		} 
 	%>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -77,7 +86,7 @@
             <div class="inner">
                 <!-- Header -->
                 <header id="header">
-                    <a href="WithU.jsp" class="logo"><strong>With U</strong></a>
+                    <a href="WithU.jsp" class="logo"><strong>Purchase Page</strong></a>
                     <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -96,7 +105,63 @@
 							<!-- Wrapper -->
 							<div class="wrapper">
 								<div class="inner" style="text-align: center;">
-								<img src="../images/withU_page.png">
+								<form style="width:60%; margin:0 auto;">
+									<table>
+										<tr>
+											<td>이름</td>
+											<td><input type="text" id="name"></td>
+										</tr>
+										<tr>
+											<td>연락처</td>
+											<td><input type="text" id="phone"></td>
+										</tr>
+										<tr>
+											<td>주소</td>
+											<td><input type="text" id="addr"></td>
+										</tr>
+										<tr>
+											<td>결제방법</td>
+											<td>
+												<input type="radio" id="purchase" value="money" checked>
+												<label for="money">무통장입금</label>
+											</td>
+										</tr>
+										<tr>
+											<td>음성선택</td>
+											<td>
+												<input type="radio" id="girl" name="voice_ck" value="girl" checked>
+												<label for="girl">여자아이</label>
+												<input type="radio" id="boy" name="voice_ck" value="boy" >
+												<label for="boy">남자아이</label>
+												<input type="radio" id="woman" name="voice_ck" value="woman" >
+												<label for="woman">여자노인</label>
+												<input type="radio" id="man" name="voice_ck" value="man">
+												<label for="man">남자노인</label>
+											</td>
+										</tr>
+										<tr>
+											<td>수량선택</td>
+											<td>
+												<input type="number" id="num" name="num" value="1" style="padding:3px;">
+											</td>
+										</tr>
+										<tr>
+											<td>배송방법</td>
+											<td>
+											
+												<input type="radio" id="girl" name="ck" value="x" checked>
+												<label for="ck">택배</label>
+												<input type="radio" id="boy" name="ck" value="y" >
+												<label for="ck">방문수령</label>
+											
+											</td>
+										</tr>
+										<tr>
+											<td>배송메모</td>
+											<td><input type="text"></td>
+										</tr>
+									</table>
+								</form>
 								<button id="purchaseBtn" style="line-height: 1.5em;display: block;margin: 0 auto;font-size: 1.5em;margin-top: 30px;
 								">구매하기</button>
 								</div>
@@ -144,21 +209,23 @@
     <!-- 구매하기 버튼 스크립트 -->
     <script>
     	let purchaseBtn = document.querySelector("#purchaseBtn");
+    	let name = document.querySelector("#name");
+    	let phone = document.querySelector("#phone");
+    	let addr = document.querySelector("#addr");
+    	let pur_btn = document.querySelector("#pur_btn");
     	
-    	let popupWidth = 470;
-    	let popupHeight = 380;
-
-    	let popupX = (window.screen.width / 2) - (popupWidth / 2);
-    	// 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
-
-    	let popupY= (window.screen.height / 2) - (popupHeight / 2);
-    	// 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
     	
+    	name.value = "<%=uvo.getUser_name() %>";
+    	phone.value = "<%=uvo.getUser_phone() %>";
+    	addr.value = "<%=uvo.getUser_addr() %>";
     	
     	purchaseBtn.addEventListener("click", function(){ //  left='+ popupX + ', top='+ popupY
-    		//window.open("./WithU_Purchase.jsp","구매하기 페이지","width=470, height=380, menubar=no, toolbar=no, resizable=yes, scrollbars=no, left="+popupX+"top="+popupY);
-    		location.href = "./WithU_inputForm.jsp"
+    		location.href ="./WithU_Purchase2.jsp";
     	});
+    		
+    	/* pur_btn.addEventListener("click", function(){
+    		pur_btn.setAttribute('href','./WithU_Purchase2.jsp';);
+    	}); */
     	
     </script>
 </body>

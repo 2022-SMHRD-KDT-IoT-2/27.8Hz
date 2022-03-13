@@ -58,17 +58,29 @@
                   font-weight: 600;
                   letter-spacing: 0.1em;
         }
+        tr{
+        	height: 100px;
+        }
+        td{
+        	vertical-align: middle;
+        }
+        label{
+        	margin-top: 21px !important;
+        }
+        p{
+        	font-size: 1.5em;
+        }
     </style>
 </head>
 <body class="is-preload">
 	<%
-		/* UserVO mvo = (UserVO)session.getAttribute("loginVO");
+		 UserVO mvo = (UserVO)session.getAttribute("loginVO");
 		
 		UserVO uvo = null;
 		if (mvo!=null) {
 			UserDAO udao = new UserDAO();
 			uvo = udao.getOneList(mvo.getUser_id());
-		} */
+		} 
 	%>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -77,7 +89,7 @@
             <div class="inner">
                 <!-- Header -->
                 <header id="header">
-                    <a href="WithU.jsp" class="logo"><strong>With U</strong></a>
+                    <a href="WithU.jsp" class="logo"><strong>Purchase Page</strong></a>
                     <ul class="icons">
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -96,9 +108,43 @@
 							<!-- Wrapper -->
 							<div class="wrapper">
 								<div class="inner" style="text-align: center;">
-								<img src="../images/withU_page.png">
-								<button id="purchaseBtn" style="line-height: 1.5em;display: block;margin: 0 auto;font-size: 1.5em;margin-top: 30px;
-								">구매하기</button>
+									<div id="container">
+										<h2 style="margin-top:20px;font-size: 2.5em;">주문완료</h2>										
+										<p style="font-size:1.6em;margin-bottom: 0.5em;"><%=uvo.getUser_id() %>님 주문이 완료되었습니다.</p>
+										<p style="font-size:1.6em;margin-bottom: 0.5em;">아래 계좌 정보로 입금해 주시면</p>
+										<p style="font-size:1.6em;">결제 완료처리가 됩니다.</p>
+										
+										<table style="width: 50%;margin:0 auto;font-size:1.1em">
+											<tr>
+												<td style="font-weight:bold;">주문번호</td>
+												<td>20220315278</td>
+											</tr>
+											<tr>
+												<td rowspan='2' style="font-weight:bold;">입금 계좌</td>
+												<td>3333-06-3580310 카카오뱅크</td>
+											</tr>
+											<tr>
+												<td>예금주 : 김소원</td>
+											</tr>
+											<tr>
+												<td style="font-weight:bold;">주문 금액</td>
+												<td style="color:red;">69,900원</td>
+											</tr>
+											<tr>
+												<td style="font-weight:bold;">배송방법</td>
+												<td>택배</td>
+											</tr>
+											<tr>
+												<td style="font-weight:bold;">배송메모</td>
+												<td>빠른배송부탁드립니다</td>
+											</tr>
+											<tr>
+												<td colspan='2' style="font-size:1.2em;color:red;font-weight:bold;">24시간 내에 입금을 완료해주세요!</td>
+											</tr>
+										</table>
+										<button id="clickBtn" style="margin-top:20px;font-size: 1.1em;">완료</button>
+									</div>								
+
 								</div>
 							</div>
 						</div>
@@ -143,22 +189,12 @@
     
     <!-- 구매하기 버튼 스크립트 -->
     <script>
-    	let purchaseBtn = document.querySelector("#purchaseBtn");
-    	
-    	let popupWidth = 470;
-    	let popupHeight = 380;
-
-    	let popupX = (window.screen.width / 2) - (popupWidth / 2);
-    	// 만들 팝업창 width 크기의 1/2 만큼 보정값으로 빼주었음
-
-    	let popupY= (window.screen.height / 2) - (popupHeight / 2);
-    	// 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
-    	
-    	
-    	purchaseBtn.addEventListener("click", function(){ //  left='+ popupX + ', top='+ popupY
-    		//window.open("./WithU_Purchase.jsp","구매하기 페이지","width=470, height=380, menubar=no, toolbar=no, resizable=yes, scrollbars=no, left="+popupX+"top="+popupY);
-    		location.href = "./WithU_inputForm.jsp"
+    	let clickBtn = document.querySelector("#clickBtn");	
+    
+    	clickBtn.addEventListener("click", function(){ //  left='+ popupX + ', top='+ popupY
+    		location.href ="../main.jsp";
     	});
+    	
     	
     </script>
 </body>

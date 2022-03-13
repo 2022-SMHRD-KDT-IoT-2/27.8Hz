@@ -91,7 +91,7 @@ textarea {
 
 				<!-- Header -->
 				<header id="header">
-					<a href="NewsList.jsp" class="logo"><strong>건강 뉴스 게시판</strong></a>
+					<a href="NewsList.jsp" class="logo"><strong>Health News</strong></a>
 				</header>
 
 				<!-- Banner -->
