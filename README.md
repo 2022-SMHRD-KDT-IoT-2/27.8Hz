@@ -1,41 +1,31 @@
-# 누르미
-팀명 : 27.8HZ
+# WITH U
+팀명 : 27.8Hz
 
 ## 1. 프로젝트명
-- 생체 인식 기반 디스펜서와 스마트 미러를 부착한 반응형 화장대
-- Challenge Point : Open API(미디어 데이터 활용) - 음성
+- 졸음운전 방지 스마트 핸들 'WITH U'
+- Challenge Point : HealthCare
 
 ## 2. 주요기능
-- 사용자 인식을 통한 자동 화장품 디스펜서
-- UV 살균 기능 제공 
-- 화장품 잔량 및 유통기한 확인
-- 날짜, 시간, 날씨 등의 정보 거울에 표시
-- 보석함 도난 방지
-- 음성 인식을 통한 일정 확인
+- 차량 내 이산화탄소 농도 감지 후 환기 알림
+- 운전 중 유의미한 심박수의 변화 생길 시, 심박수, 체온, 산소포화도 값 수집한 후 시각화된 자료로 제공
 
 ## 3. 개발환경
-- 사용언어 : Java 1.8 / HTML / CSS / Javascript
-- 개발도구 : eclipse / VSCode / RaspberryPI
-- 서버환경 : tocatm 8.5 / Flask
+- 사용언어 : Java 8 / HTML / CSS / Javascript
+- 개발도구 : eclipse / VSCode / Arduino Sketch
+- 서버환경 : tomcat 9
 - 데이터베이스 : oracle 11g
-- 디자인도구 : PhotoShop
-- 영상편집도구 : Premire Pro
+- 디자인도구 : Adobe PhotoShop
+- 영상편집도구 : Adobe Premire Pro
 
 ## 4. 대표 이미지
-![슬라이드1](https://user-images.githubusercontent.com/39328049/156705800-0f117733-82e9-4031-b42f-41857a340576.PNG)
-
+![슬라이드1](https://user-images.githubusercontent.com/97619702/158282845-ed87fcf0-9e71-4b11-82ba-2ed98e338117.png)
 
 ## 5. 기능 흐름도
-- 디스펜서(사용자 감지 및 자동 분사)
-![슬라이드19](https://user-images.githubusercontent.com/39328049/156706081-59c90440-cc60-4504-a39a-fdd610c12c08.PNG)
-- 스마트미러(사용자 얼굴 인식 및 정보 안내)
-![슬라이드17](https://user-images.githubusercontent.com/39328049/156706083-a264247f-d0c8-4e42-a324-f65eefe3785f.PNG)
-- 모바일 어플리케이션(화장품 정보 등록/수정/삭제)
-![슬라이드18](https://user-images.githubusercontent.com/39328049/156706084-ad630d51-65e7-4f86-ab6f-03d1d6391cab.PNG)
+![슬라이드19](https://user-images.githubusercontent.com/97619702/158283212-497e6bac-cacb-4f47-9c82-0cfe572a7eae.png)
 
 ## 6. 사용 부품
-- [주문리스트.xlsx](https://github.com/2022-SMHRD-KDT-IoT-2/MakeMeUp/files/8183293/default.xlsx)
-![3차발표PPT_누르미](https://user-images.githubusercontent.com/39328049/156707543-6fc5cc3e-6ca6-4de0-999e-d91a3c06eec4.png)
+- [주문리스트.xlsx](https://github.com/2022-SMHRD-KDT-IoT-2/27.8Hz/files/8249244/default.xlsx)
+![3차발표PPT_누르미](https://user-images.githubusercontent.com/97619702/158283433-f0b78178-25c6-45b3-8e2d-02dfb302ed80.png)
 
 ## 7. 회로도
 - 사용자 감지 및 자동 분사
@@ -53,7 +43,7 @@
 
 ## 9. 제작일정
 | 일정           | 상세내용 | 
-|----------------|-------------------|
+|————————|—————————|
 | 2.3 ~ 2.9      | 기획 및 DB 설계 | 
 | 2.10 ~ 2.19    | 데이터 수집 및 화면 설계| 
 | 2.20 ~ 2.25    | 기능 구현 및 화면 구현| 
@@ -61,7 +51,7 @@
 
 ## 10. 팀원 단위 업무 분장 및 결과표
 | 이름           | 역할 및 분담 업무 | 
-|----------------|-------------------|
+|————————|—————————|
 | 문*희          | 프로젝트 총괄 및 일정관리 / 모바일 앱 제작 | 
 | 김*태          | 스마트미러 기능 제작 및 OpenCV활용| 
 | 서*호          | 센서 제어 및 소독 기능 개발| 
