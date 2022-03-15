@@ -1,4 +1,4 @@
-# WITH U
+# :sparkles:WITH U:sparkles:
 팀명 : 27.8Hz
 
 ## 1. 프로젝트명
