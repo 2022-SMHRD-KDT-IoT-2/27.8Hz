@@ -37,7 +37,7 @@
 ![슬라이드24](https://user-images.githubusercontent.com/97619702/158284802-edf7ddd2-9d6a-4fef-bf1c-7dc2d832d3c0.jpeg)
 - 웹페이지 구현 화면 - 메인
 ![슬라이드25](https://user-images.githubusercontent.com/97619702/158285349-4b1b9277-7274-464a-ae0f-14384b69d84b.png)
-<br>게시판
+<br> - 게시판
 ![image](https://user-images.githubusercontent.com/54389682/163779318-36a48c5d-3f27-4f41-b325-c6462dfbfa79.png)
 
 ## 9. 제작일정
